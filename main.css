@@ -1,0 +1,90 @@
+/*main.css*/
+
+html, body, h1, h2, h3, h4, p, div, ul, ol, li{
+    padding:0;
+    border:0;
+    margin:0;
+    font: inherit;
+    font-size: 100%;
+    font-family: Roboto, sans-serif;
+}
+h1{
+    font-size:70px;
+    text-align:center;
+    font-weight:bold;
+}
+h2{
+    font-size:30px;
+    text-align:center;
+    font-weight:100;
+    color:#ffffff;
+    width:700px;
+    margin:0 auto;
+}
+h2 strong{
+    font-weight:900;
+}
+.header{
+    background-color: #999999;
+}
+h3{
+    font-size:28px;
+    text-align:center;
+    font-weight:normal;
+    color:#000000;
+    border-bottom : 1px solid #555555;
+    margin : 20px 0;
+}
+p {
+    font-size: 18px;
+}
+a {
+    font-size: 16px;
+    font-weight:bold;
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover{
+    color:#aa0000;
+    text-decoration:underline;
+}
+
+.tagline{
+    background-color: #000000;
+    padding:20px 0px 20px 0px;
+}
+.projects, .badges, .articles, .skills{
+    width : 700px;
+    margin : 0 auto;
+    margin-bottom : 20px;
+}
+.projects ul, .badges ul, .articles ul, .skills ul{
+    text-align : center;
+    list-style-type : none;
+}
+.projects li, .badges li, .articles li, .skills li{
+    margin-bottom : 10px ;
+}
+.projects img{
+    width:300px;
+}
+.badges img{
+    width:60px;
+    float: left;
+    padding-right: 10px;
+}
+.skills li {
+    background-color: #444444;
+    font-weight:bold;
+    color : #cccccc;
+    display : inline-block;
+    padding : 8px 8px 8px 8px;
+    margin : auto 5px;
+}
+.footer {
+    background-color: #999999;
+    text-align: center;
+    padding : 20px 0 20px 0;
+}
+
