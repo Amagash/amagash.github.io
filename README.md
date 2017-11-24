@@ -1,0 +1,1 @@
+# amagash.github.io
