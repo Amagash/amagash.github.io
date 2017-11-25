@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <title>Portfolio</title>
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <!-- fontawesome -->
-        <script src="https://use.fontawesome.com/1ebdada262.js"></script>
-        <!-- CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
-    </head>
 
-    <body>
-        <!-- Sidebar -->
-        <section class="col-lg-3 col-md-4 nopadding" id="intro">
+<head>
+    <title>Portfolio</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://use.fontawesome.com/1ebdada262.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="row h-100 no-gutters">
+        <!-- SIDEBAR TOP -->
+        <div class="col-4 sidebar">
             <h1>Tiffany Souterre</h1>
+
             <h2>Data Science exploration</h2>
             <div class="social_media">
                 <a href="https://www.linkedin.com/in/tiffanysouterre/" target="_blank">
@@ -26,28 +30,48 @@
                     <i class="fa fa-github" aria-hidden="true"></i>
                 </a>
             </div>
-            <nav>
-                <ul class="sidebar-nav">
-                        <li>
-                            <a href="#about" data-scroll-nav="1">
-                                <span class="icon"><i class="fa fa-user fa-lg fa-fw"></i></span>
-                                <span class="option">About Me</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#certifications" data-scroll-nav="2">
-                                <span class="icon"><i class="fa fa-graduation-cap fa-lg fa-fw"></i></span>
-                                <span class="option">Certifications</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#exploration" data-scroll-nav="3">
-                                <span class="icon"><i class="fa fa-flask fa-lg fa-fw"></i></span>
-                                <span class="option">Data Science Exploration</span>
-                            </a>
-                        </li>
-                    </ul>
-            </nav>
-        </section>
-    </body>
+            <div class='photo'>
+                <img src="assets/images/cv-photo.jpg" alt="Image profile">
+            </div>
+            <!-- SIDEBAR NAVIGATION -->
+            <div class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#about">
+                            <span class="option">
+                                <i class="fa fa-user fa-lg fa-fw"></i>
+                                About me
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#certifications">
+                            <span class="option">
+                                <i class="fa fa-graduation-cap fa-lg fa-fw"></i>
+                                Certifications
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#exploration">
+                            <span class="option">
+                                <i class="fa fa-flask fa-lg fa-fw"></i>
+                                Data Science Exploration
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="col-8">
+            <p>
+                Add a short section about me
+            </p>
+        </div>
+    </div>
+
+</body>
+
 </html>
