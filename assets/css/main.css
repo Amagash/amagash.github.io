@@ -1,0 +1,71 @@
+/*main.css*/
+
+/* INITIALIZATION */
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Spectral+SC');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background: url('assets/Images/low_contrast_linen.png') repeat;
+    font-family: 'Playfair Display', 'Helvetica', 'Times New Roman', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #4F535F;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* SOCIAL MEDIA */
+
+.social_media {
+    padding: 25px 0 45px 0;
+}
+.social_media a {
+    color: #D2D2D2;
+}
+.social_media a:hover, .social_media a:focus {
+    color: rgb(222, 202, 135);
+    text-decoration: none;
+}
+.social_media i {
+    margin: 0 8px; 
+    font-size: 1.5em;
+}
+
+/* SIDEBAR NAVIGATION */
+
+.sidebar-nav {
+    width: 100%;
+    list-style: none;
+}
+.sidebar-nav li {
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    line-height: 50px;
+}
+.sidebar-nav li a {
+    display: block;
+    padding: 0 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #D2D2D2;
+}
+.sidebar-nav li a .icon {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+.sidebar-nav li a .option {
+    font-size: 1.1em;
+    vertical-align: middle;
+}
