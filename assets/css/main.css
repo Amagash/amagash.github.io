@@ -100,6 +100,8 @@ html, body {
 .sidebar-nav li:hover a{
     color:white;
 }
+
+
 /* ABOUT ME */
 #about {
     height: 100%;
@@ -180,3 +182,44 @@ html, body {
     padding-bottom: 50px;
 }
 
+/* SIDEBAR NAVIGATION EXPLORATION */
+.sidebar-nav-thin{
+    height: 100%;
+    position: fixed;
+    width: 50px;
+    color:rgb(220, 220, 220);
+    text-align: center;
+}
+.sidebar-nav-thin a{
+    text-decoration: none; 
+    color:inherit;
+}
+.sidebar-nav-thin i{
+    font-size: 2.25rem;
+    padding:20px 0;
+}
+.exp-background{
+    background: white;
+    margin-left:50px
+}
+.exp-background .exp-marge{
+    padding:5% 10%;
+}
+.exp-background .exp-title{
+    background: rgb(206, 206, 206);
+    padding: 2% 20%;
+    text-align: center;
+    border-radius: 10px;
+}
+.exp-background .exp-content .images{
+    text-align: center;
+}
+.exp-background .exp-content img{
+    max-width: 100%;
+}
+.exp-background h2{
+    padding: 40px 0 20px 0;
+    text-align: center;
+
+
+}
