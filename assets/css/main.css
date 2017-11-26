@@ -218,8 +218,14 @@ html, body {
     max-width: 100%;
 }
 .exp-background h2{
-    padding: 40px 0 20px 0;
+    padding: 5% 0 2% 0;
     text-align: center;
-
-
+}
+.exp-background .intro {
+    background: rgb(228, 227, 227);
+    border-radius: 10px;
+    padding: 2% 5% 1% 5%;
+}
+.exp-background .in-paragraph {
+    padding-left: 50px;
 }

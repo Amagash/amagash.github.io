@@ -40,14 +40,32 @@
                 <h2>
                     Decision trees for self-driving car
                 </h2>
-                <p>
+                <div>
+                    <div class='intro'>
+                        <p>
+                            We want to train a car to decide weither or not it can drive faster or if it should slow down depending on the terrain. Two
+                            features will be taken into account in this project :
+                        </p>
+                        <ul class='in-paragraph'>
+                            <li>
+                                Bumpiness: the more bumps on the road, the slower the car should go.
+                            </li>
+                            <li>
+                                Steepness: the steeper the road, the slower the car should go.
+                            </li>
+                        </ul>
+                        <p>
+                            I will describe the procedure I went through step by step using decision trees as classifiers.
+                        </p>
+
+                    </div>
+                    </p>
                     <ol>
                         <li>
                             <p>
-                                Depending on the bumpiness and steepness of a terrain, the car must decide to go faster or slower. We first need to create
-                                a dataset of terrain with the features bumpiness and steepness along with a label "fast"
-                                or "slow". From this labeled dataset, we will be able to build a decision tree to help the
-                                car make it's decision : "Should I go slow or fast?"
+                                We first need to create a dataset of terrain with the features bumpiness and steepness along with a label "fast" or "slow".
+                                From this labeled dataset, we will be able to build a decision tree to help the car make
+                                it's decision : "Should I go slow or fast?"
                             </p>
 
                             <pre class="prettyprint">
@@ -81,6 +99,85 @@ def makeTerrainData(n_points):
     return features_train, labels_train, features_test, labels_test
                                 </code>
                             </pre>
+                            <p>
+                                The outputs are as follows for n_points = 10 :
+                            </p>
+                            <table class="table table-bordered text-justify">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">features_train</th>
+                                        <th>labels_train</th>
+                                        <th colspan="2">features_test</th>
+                                        <th>labels_test</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>grade</td>
+                                        <td>bumpiness</td>
+                                        <td>slow = 1.0 | fast = 0.0</td>
+                                        <td>grade</td>
+                                        <td>bumpiness</td>
+                                        <td>slow = 1.0 | fast = 0.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.64</td>
+                                        <td>0.22</td>
+                                        <td>1.0</td>
+                                        <td>0.09</td>
+                                        <td>0.59</td>
+                                        <td>0.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.03</td>
+                                        <td>0.51</td>
+                                        <td>0.0</td>
+                                        <td>0.42</td>
+                                        <td>0.81</td>
+                                        <td>1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.28</td>
+                                        <td>0.03</td>
+                                        <td>0.0</td>
+                                        <td>0.03</td>
+                                        <td>0.01</td>
+                                        <td>0.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.22</td>
+                                        <td>0.20</td>
+                                        <td>0.0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.74</td>
+                                        <td>0.64</td>
+                                        <td>1.0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.68</td>
+                                        <td>0.54</td>
+                                        <td>1.0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>0.89</td>
+                                        <td>0.22</td>
+                                        <td>1.0</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             <p>
                                 For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
                                 'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
@@ -157,15 +254,13 @@ pred = clf.predict(features_test)
                                 </table>
                             </p>
                             <p>
-                                We can see that a low min_samples_split doesn't necessarily means lead
-                                to a better accuracy. Indeed, we need to ne careful of overfitting the
-                                traning set leading to a loss in accuracy when analyzing a testing set.
-                                However for both example, the prediction accuracy is nonetheless very 
-                                good.
+                                We can see that a low min_samples_split doesn't necessarily means lead to a better accuracy. Indeed, we need to ne careful
+                                of overfitting the traning set leading to a loss in accuracy when analyzing a testing set.
+                                However for both example, the prediction accuracy is nonetheless very good.
                             </p>
                         </li>
                     </ol>
-                </p>
+                </div>
             </div>
         </div>
     </div>
