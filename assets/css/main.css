@@ -5,20 +5,25 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Spectral+SC');
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding: 0 ;
 }
 html, body {
     width: 100%;
     height: 100%;
+    font-family: 'Playfair Display';
+    background: url('../images/low_contrast_linen.png') repeat;
 }
 
 /* SIDEBAR */
 .sidebar{
-    background: url('../images/low_contrast_linen.png') repeat;
+    height: 100%;
+    position: fixed;
+    
 }
 .sidebar h1{
     margin: 8% 0 0 0;
+    font-weight: 600;
     font-size: 1.5em;
     text-align: center;
     color: rgb(221, 221, 221);
@@ -27,6 +32,13 @@ html, body {
 .sidebar h2{
     margin: 4% 0 0 0;
     font-size: 1em;
+    text-align: center;
+    font-family: 'Playfair Display';
+    color: #CCC;
+}
+.sidebar h3{
+    margin: 2% 0 0 0;
+    font-size: 0.9em;
     text-align: center;
     font-family: 'Playfair Display';
     color: #CCC;
@@ -79,7 +91,7 @@ html, body {
 }
 
 .sidebar-nav a i{
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     margin-right: 10px;
 }
 .sidebar-nav li:hover{
@@ -88,3 +100,83 @@ html, body {
 .sidebar-nav li:hover a{
     color:white;
 }
+/* ABOUT ME */
+#about {
+    height: 100%;
+    background: linear-gradient(
+        rgba(214, 220, 220, 0.9), 
+        rgba(214, 220, 220, 0.9)
+        ), url('../images/jump.jpg') no-repeat center center scroll;
+    background-size: cover;
+    color: #555;
+}
+#about .container{
+    width: 85%;
+    margin:0px auto;
+    padding-top: 50px;
+}
+#about h1{
+    font-size: 5em;
+    color: #FF9B00;
+}
+#about p{
+    padding: 50px 0 0 0;
+    font-size: 1.45em;
+    line-height: 2em;
+    color: rgb(63, 63, 63);
+}
+#about .high-orange {
+    margin: 0 2px;
+    padding: 4px 6px;
+    color: #FF9B00;
+    font-weight: 600;
+}
+/* CONTENT */
+.content{
+    background: white;
+}
+.content h1{
+    padding: 50px 0 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+    text-transform: uppercase;
+    color:rgb(63, 63, 63);
+}
+.content h2{
+    font-size: 1.4em;
+    text-transform: uppercase;
+    padding: 10px 0;
+    text-align: center;
+    padding: 20px 0 0 0;
+    color:rgb(79, 78, 78);
+}
+.content img{
+    height: 50px;
+}
+.content li {
+    list-style-type: none;
+}
+.content .container{
+    width: 85%;
+    margin:0 auto;
+    text-align: center;
+}
+.content .container .partition{
+    padding: 40px 15px 50px 15px;
+}
+.content .container .partition i{
+    /* color:rgb(214, 142, 49); */
+    color: rgba(98, 195, 112, 1);
+}
+
+.content .container .liste{
+    margin: 10px 0;
+    text-align: left;
+    /* color:rgb(214, 142, 49); */
+    color: #62A370;
+}
+#exploration{
+    border-top: 1px solid rgb(208, 208, 208);
+    padding-bottom: 50px;
+}
+
