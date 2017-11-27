@@ -24,16 +24,16 @@
 <body>
     <div class="sidebar-nav-thin">
         <ul>
-            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
-                <a href='../../../index.html'>
+            <a href='../../../index.html'>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
-                <a href=#car>
+                </li>
+            </a>
+            <a href=#car>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
                     <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
-                </a>
-            </li>
+                </li>
+            </a>
         </ul>
     </div>
     <div class="exp-background">
@@ -78,6 +78,8 @@
 
                                 <pre class="prettyprint">
                                 <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
 import random
 def makeTerrainData(n_points):
     random.seed(42)

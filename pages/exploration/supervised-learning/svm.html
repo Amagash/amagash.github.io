@@ -24,16 +24,16 @@
 <body>
     <div class="sidebar-nav-thin">
         <ul>
-            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
-                <a href='../../../index.html'>
+            <a href='../../../index.html'>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
-                </a>
-            </li>
-            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
-                <a href=#car>
+                </li>
+            </a>
+            <a href=#car>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
                     <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
-                </a>
-            </li>
+                </li>
+            </a>
         </ul>
     </div>
     <div class="exp-background">
@@ -78,6 +78,8 @@
 
                                 <pre class="prettyprint">
                                 <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
 import random
 def makeTerrainData(n_points):
     random.seed(42)
@@ -105,6 +107,7 @@ def makeTerrainData(n_points):
     labels_test  = labels[split:]
 
     return features_train, labels_train, features_test, labels_test
+    
                                 </code>
                             </pre>
                                 <p>
@@ -215,10 +218,13 @@ def makeTerrainData(n_points):
                                         classifying training points correctly. A large value of C will allow to include more
                                         training points therefore leading to a more intricate boundary. Here in the scheme
                                         the orange line represents a low value of C and the green line represents a high
-                                        value of C.
+                                        value of C (more on
+                                        <a href='https://goo.gl/3B6d8K' target='_blank'>Udacity</a>).
                                     </div>
                                     <div class="col-md-4 col-sm-12">
-                                        <img src="../../../assets/images/exploration/svm/svm-c-param.png">
+                                        <a href='https://goo.gl/3B6d8K' target='_blank'>
+                                            <img src="../../../assets/images/exploration/svm/svm-c-param.png">
+                                        </a>
                                     </div>
                                 </div>
                                 <div class='row no-gutters d-flex align-items-center'>
@@ -227,14 +233,20 @@ def makeTerrainData(n_points):
                                             <b>Kernel</b>: (default = 'rbf') Can be ‘linear, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
                                             or a callable. It's a function that takes a low dimensional input space or feature
                                             space and map it to a higher dimensional space. Therefore something that is not
-                                            linearly separable can be turned into a separable problem.
+                                            linearly separable can be turned into a separable problem (more on
+                                            <a href='https://goo.gl/9T2WrG'
+                                                target='_blank'>Udacity</a>).
                                         </p>
                                         <div class='text-center'>
-                                            <img width="60%" src="../../../assets/images/exploration/svm/svm-kernel-param2.png">
+                                            <a href='https://goo.gl/9T2WrG' target='_blank'>
+                                                <img width="60%" src="../../../assets/images/exploration/svm/svm-kernel-param2.png">
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-12">
-                                        <img src="../../../assets/images/exploration/svm/svm-kernel-param.png">
+                                        <a href='https://goo.gl/9T2WrG' target='_blank'>
+                                            <img src="../../../assets/images/exploration/svm/svm-kernel-param.png">
+                                        </a>
                                     </div>
                                 </div>
                                 <div class='row no-gutters d-flex align-items-center'>
@@ -243,13 +255,16 @@ def makeTerrainData(n_points):
                                         reaches. A High gamma value means only the closest points to the decision boundary
                                         will carry the weigth leading to a smoother boundary. One the other hand a low gamma
                                         value means even the points far away from the decision boundary have a weigth leading
-                                        to a more wiggly boundary.
+                                        to a more wiggly boundary (more on
+                                        <a href='https://goo.gl/92xYiL' target='_blank'>Udacity</a>).
                                     </div>
                                     <div class="col-md-4 col-sm-12">
-                                        <img src="../../../assets/images/exploration/svm/svm-gamma-param.png">
+                                        <a href='https://goo.gl/92xYiL' target='_blank'>
+                                            <img src="../../../assets/images/exploration/svm/svm-gamma-param.png">
+                                        </a>
                                     </div>
                                 </div>
-
+                                <br/>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
