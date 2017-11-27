@@ -15,6 +15,13 @@ html, body {
     background: url('../images/low_contrast_linen.png') repeat;
     scroll-behavior: smooth;
 }
+a{
+    text-decoration: none;
+    color: rgb(57, 177, 81);
+}
+a:hover{
+    color:rgb(214, 142, 49);
+}
 
 /* SIDEBAR */
 .sidebar{
@@ -143,6 +150,9 @@ html, body {
 }
 .content{
     background: white;
+}
+#certifications{
+    min-height: 100%;
 }
 .content h1{
     padding: 50px 0 20px 0;

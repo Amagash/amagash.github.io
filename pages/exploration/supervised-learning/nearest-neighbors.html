@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Nearest Neighbors</title>
+    <!-- prettyprint -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <!-- responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://use.fontawesome.com/1ebdada262.js"></script>
+    <!-- code editor -->
+    <link rel="stylesheet" href="../../../assets/css/code-theme-lakeside-custom.css">
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../../../assets/css/tooltip.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+
+</head>
+
+<body>
+    <div class="sidebar-nav-thin">
+        <ul>
+            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
+                <a href='../../../index.html'>
+                    <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
+                <a href=#car>
+                    <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="exp-background">
+        <div class="exp-marge">
+            <div class="exp-title">
+                <h1>
+                    Nearest Neighbors
+                </h1>
+            </div>
+            <div class='exp-content'>
+                <section id='car'>
+                    <h2>
+                        Nearest Neighbors for self-driving car
+                    </h2>
+                    <div>
+                        <div class='intro'>
+                            <p>
+                                We want to train a car to decide weither or not it can drive faster or if it should slow down depending on the terrain. Two
+                                features will be taken into account in this project :
+                            </p>
+                            <ul class='in-paragraph'>
+                                <li>
+                                    Bumpiness: the more bumps on the road, the slower the car should go.
+                                </li>
+                                <li>
+                                    Steepness: the steeper the road, the slower the car should go.
+                                </li>
+                            </ul>
+                            <p>
+                                I will describe the procedure I went through step by step using Nearest Neighbors as classifiers.
+                            </p>
+
+                        </div>
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    We first need to create a dataset of terrain with the features bumpiness and steepness along with a label "fast" or "slow".
+                                    From this labeled dataset, we will be able to build a decision tree to help the car make
+                                    it's decision : "Should I go slow or fast?"
+                                </p>
+
+                                <pre class="prettyprint">
+                                <code class="language-python">
+import random
+def makeTerrainData(n_points):
+    random.seed(42)
+    ### generate random data for both features 'grade' and 'bumpy' with an error
+    grade = [random.random() for ii in range(0,n_points)]
+    bumpy = [random.random() for ii in range(0,n_points)]
+    error = [random.random() for ii in range(0,n_points)]
+
+    ### data are labeled depending on their features and error.
+    ### label "slow" if labels = 1.0 
+    ### label "fast" if labels = 0.0
+    labels = [round(grade[ii]*bumpy[ii]+0.3+0.1*error[ii]) for ii in range(0,n_points)]
+
+    ### adjust labels for extreme cases (>0.8) of bumpiness or steepness
+    for ii in range(0, len(y)):
+        if grade[ii]>0.8 or bumpy[ii]>0.8:
+            labels[ii] = 1.0
+
+    ### split into train set (75% of data generated) and test sets (25% of data generated)
+    features = [[gg, ss] for gg, ss in zip(grade, bumpy)]
+    split = int(0.75*n_points)
+    features_train = features[0:split]
+    features_test  = features[split:]
+    labels_train = labels[0:split]
+    labels_test  = labels[split:]
+
+    return features_train, labels_train, features_test, labels_test
+                                </code>
+                            </pre>
+                                <p>
+                                    The outputs are as follows for n_points = 10 :
+                                </p>
+                                <div class='responsive-wrapper'>
+                                    <table class="table table-bordered text-justify">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">features_train</th>
+                                                <th>labels_train</th>
+                                                <th colspan="2">features_test</th>
+                                                <th>labels_test</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.64</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td>0.09</td>
+                                                <td>0.59</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.03</td>
+                                                <td>0.51</td>
+                                                <td>0.0</td>
+                                                <td>0.42</td>
+                                                <td>0.81</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.28</td>
+                                                <td>0.03</td>
+                                                <td>0.0</td>
+                                                <td>0.03</td>
+                                                <td>0.01</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.22</td>
+                                                <td>0.20</td>
+                                                <td>0.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.74</td>
+                                                <td>0.64</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.68</td>
+                                                <td>0.54</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.89</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>
+                                    For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
+                                    'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
+                                    generated has two coordinates bumpiness and grade. When we plot the test points (features_test)
+                                    - representing 25% of our generated data - we can see the pattern separating the points
+                                    labeled 'slow' and 'fast'.
+                                </p>
+                                <div class="images">
+                                    <img src='../../../assets/images/exploration/decision-tree/dt-testset.png' </li>
+                                    <p class='fig-title'>Testing set plotted with their labels</p>
+                                    <p class='fig-legend'>
+                                        Testing set includes all features_test (grade, bumpiness) with their labels_test (slow or fast)
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
+                                    We will use the
+                                    <a href='https://goo.gl/P3stnu' target="_blank">class sklearn.neighbors.KNeighborsClassifier()</a>. It can take several parameters, but
+                                    we will only focus on the
+                                    <b>n_neighbors</b> which determines the number of neighbors that will be used to determine
+                                    the classification.
+                                </p>
+                                <pre class="prettyprint">
+                                <code class="language-python">
+from prep_terrain_data import makeTerrainData
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+
+### generate the dataset for 1000 points (see previous code)
+features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
+
+### create the classifier. Here n_neighbors is set to 1.
+clf = KNeighborsClassifier(n_neighbors=1)
+
+### fit the training set
+clf.fit(features_train, labels_train)
+
+### now let's make predictions on the test set
+prediction = clf.predict(features_test)
+
+### measure of the accuracy score by comparing the prediction with the actual labels of the testing set
+accuracy = accuracy_score(labels_test, pred)
+                                </code>
+                            </pre>
+                                <p>
+                                    Here I plotted the points from the testing set (features_test) with their labels (labels_test). On top is the prediction
+                                    made by the classifier after fitting on the training set.
+                                </p>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/nearest-neighbors/knn-1.png' </li>
+                                            <p class='fig-title'>K-nearest neighbors with n_neighbors = 1</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/nearest-neighbors/knn-8.png' </li>
+                                            <p class='fig-title'>K-nearest neighbors with n_neighbors = 8</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/nearest-neighbors/knn-18.png' </li>
+                                            <p class='fig-title'>K-nearest neighbors with n_neighbors = 18</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/nearest-neighbors/knn-50.png' </li>
+                                            <p class='fig-title'>K-nearest neighbors with n_neighbors = 50</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <div class="responsive-wrapper">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>n_neighbors</th>
+                                                    <th>Training time (sec)</th>
+                                                    <th>Predict time (sec)</th>
+                                                    <th>Accuracy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1</th>
+                                                    <td>0.003</td>
+                                                    <td>0.002</td>
+                                                    <td>0.940</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>8</th>
+                                                    <td>0.001</td>
+                                                    <td>0.002</td>
+                                                    <td><span style='color:blue'>0.944</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>18</th>
+                                                    <td>0.001</td>
+                                                    <td>0.002</td>
+                                                    <td>0.940</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>50</th>
+                                                    <td>0.001</td>
+                                                    <td>0.003</td>
+                                                    <td><span style='color:red'>0.928</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+                <section id='dt-emails'>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
