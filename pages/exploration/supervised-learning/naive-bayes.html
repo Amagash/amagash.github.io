@@ -110,82 +110,84 @@ def makeTerrainData(n_points):
                                 <p>
                                     The outputs are as follows for n_points = 10 :
                                 </p>
-                                <table class="table table-bordered text-justify">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">features_train</th>
-                                            <th>labels_train</th>
-                                            <th colspan="2">features_test</th>
-                                            <th>labels_test</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.64</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td>0.09</td>
-                                            <td>0.59</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.03</td>
-                                            <td>0.51</td>
-                                            <td>0.0</td>
-                                            <td>0.42</td>
-                                            <td>0.81</td>
-                                            <td>1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.28</td>
-                                            <td>0.03</td>
-                                            <td>0.0</td>
-                                            <td>0.03</td>
-                                            <td>0.01</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.22</td>
-                                            <td>0.20</td>
-                                            <td>0.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.74</td>
-                                            <td>0.64</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.68</td>
-                                            <td>0.54</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.89</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="responsive-wrapper">
+                                    <table class="table table-bordered text-justify">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">features_train</th>
+                                                <th>labels_train</th>
+                                                <th colspan="2">features_test</th>
+                                                <th>labels_test</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.64</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td>0.09</td>
+                                                <td>0.59</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.03</td>
+                                                <td>0.51</td>
+                                                <td>0.0</td>
+                                                <td>0.42</td>
+                                                <td>0.81</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.28</td>
+                                                <td>0.03</td>
+                                                <td>0.0</td>
+                                                <td>0.03</td>
+                                                <td>0.01</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.22</td>
+                                                <td>0.20</td>
+                                                <td>0.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.74</td>
+                                                <td>0.64</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.68</td>
+                                                <td>0.54</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.89</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <p>
                                     For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
                                     'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
@@ -239,24 +241,26 @@ accuracy = accuracy_score(labels_test, pred)
                                     <p class='fig-legend'></p>
                                 </div>
                                 <p>
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">Classifier</th>
-                                                <th scope="col">Training time (sec)</th>
-                                                <th scope="col">Predict time (sec)</th>
-                                                <th scope="col">Accuracy</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Gaussian Naive Bayes</th>
-                                                <td>0.003</td>
-                                                <td>0.001</td>
-                                                <td>0.884</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="responsive-wrapper">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Classifier</th>
+                                                    <th scope="col">Training time (sec)</th>
+                                                    <th scope="col">Predict time (sec)</th>
+                                                    <th scope="col">Accuracy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Gaussian Naive Bayes</th>
+                                                    <td>0.003</td>
+                                                    <td>0.001</td>
+                                                    <td>0.884</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </p>
                             </li>
                         </ol>

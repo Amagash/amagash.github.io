@@ -13,6 +13,7 @@ html, body {
     height: 100%;
     font-family: 'Playfair Display';
     background: url('../images/low_contrast_linen.png') repeat;
+    scroll-behavior: smooth;
 }
 
 /* SIDEBAR */
@@ -136,6 +137,10 @@ html, body {
     font-weight: 600;
 }
 /* CONTENT */
+.responsive-wrapper{
+    max-width: 100%;
+    overflow-y: auto;
+}
 .content{
     background: white;
 }

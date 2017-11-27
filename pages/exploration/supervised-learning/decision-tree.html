@@ -110,82 +110,84 @@ def makeTerrainData(n_points):
                                 <p>
                                     The outputs are as follows for n_points = 10 :
                                 </p>
-                                <table class="table table-bordered text-justify">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">features_train</th>
-                                            <th>labels_train</th>
-                                            <th colspan="2">features_test</th>
-                                            <th>labels_test</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.64</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td>0.09</td>
-                                            <td>0.59</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.03</td>
-                                            <td>0.51</td>
-                                            <td>0.0</td>
-                                            <td>0.42</td>
-                                            <td>0.81</td>
-                                            <td>1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.28</td>
-                                            <td>0.03</td>
-                                            <td>0.0</td>
-                                            <td>0.03</td>
-                                            <td>0.01</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.22</td>
-                                            <td>0.20</td>
-                                            <td>0.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.74</td>
-                                            <td>0.64</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.68</td>
-                                            <td>0.54</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.89</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class='responsive-wrapper'>
+                                    <table class="table table-bordered text-justify">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">features_train</th>
+                                                <th>labels_train</th>
+                                                <th colspan="2">features_test</th>
+                                                <th>labels_test</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.64</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td>0.09</td>
+                                                <td>0.59</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.03</td>
+                                                <td>0.51</td>
+                                                <td>0.0</td>
+                                                <td>0.42</td>
+                                                <td>0.81</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.28</td>
+                                                <td>0.03</td>
+                                                <td>0.0</td>
+                                                <td>0.03</td>
+                                                <td>0.01</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.22</td>
+                                                <td>0.20</td>
+                                                <td>0.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.74</td>
+                                                <td>0.64</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.68</td>
+                                                <td>0.54</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.89</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <p>
                                     For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
                                     'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
@@ -197,16 +199,18 @@ def makeTerrainData(n_points):
                                     <img src='../../../assets/images/exploration/decision-tree/dt-testset.png' </li>
                                     <p class='fig-title'>Testing set plotted with their labels</p>
                                     <p class='fig-legend'>
-                                        Testing set includes all features_test (grade, bumpiness) with their labels_test 
-                                        (slow or fast)
+                                        Testing set includes all features_test (grade, bumpiness) with their labels_test (slow or fast)
                                     </p>
                                 </div>
                             </li>
                             <li>
                                 <p>
                                     Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
-                                    We will use the <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>. It can take several parameters,
-                                    but we will only focus on the <b>min_samples_split</b> which determines the number of samples ending up in each leafs of the tree.
+                                    We will use the
+                                    <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>. It can take several parameters, but
+                                    we will only focus on the
+                                    <b>min_samples_split</b> which determines the number of samples ending up in each leafs
+                                    of the tree.
                                 </p>
                                 <pre class="prettyprint">
                                 <code class="language-python">
@@ -230,11 +234,11 @@ prediction = clf.predict(features_test)
 accuracy = accuracy_score(labels_test, pred)
                                 </code>
                             </pre>
-                            <p>
-                                Here I plotted the points from the testing set (features_test) with their labels (labels_test).
-                                On top is the prediction made by the classifier after fitting on the training set. We can see 
-                                that the classifier makes a pretty good job at separating the points.
-                            </p>
+                                <p>
+                                    Here I plotted the points from the testing set (features_test) with their labels (labels_test). On top is the prediction
+                                    made by the classifier after fitting on the training set. We can see that the classifier
+                                    makes a pretty good job at separating the points.
+                                </p>
                                 <div class='row no-gutters'>
                                     <div class="col-md-6 col-sm-12">
                                         <div class="images">
@@ -253,37 +257,40 @@ accuracy = accuracy_score(labels_test, pred)
                                     </div>
                                 </div>
                                 <p>
-                                    <table class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th scope="col">min_samples_split</th>
-                                                <th scope="col">Training time (sec)</th>
-                                                <th scope="col">Predict time (sec)</th>
-                                                <th scope="col">Accuracy</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>0.001</td>
-                                                <td>0.000</td>
-                                                <td>0.908</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">50</th>
-                                                <td>0.001</td>
-                                                <td>0.000</td>
-                                                <td>0.912</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="responsive-wrapper">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">min_samples_split</th>
+                                                    <th scope="col">Training time (sec)</th>
+                                                    <th scope="col">Predict time (sec)</th>
+                                                    <th scope="col">Accuracy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>0.001</td>
+                                                    <td>0.000</td>
+                                                    <td>0.908</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">50</th>
+                                                    <td>0.001</td>
+                                                    <td>0.000</td>
+                                                    <td>0.912</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </p>
                                 <p>
-                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2.
-                                    A low <b>min_samples_split</b> means more edges to the tree so a more precise classification
-                                    on the training set but not necessarily more accuracy on the test set because this
-                                    can lead to <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to 
-                                    improve prediction.
+                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2. A low
+                                    <b>min_samples_split</b> means more edges to the tree so a more precise classification on
+                                    the training set but not necessarily more accuracy on the test set because this can lead
+                                    to
+                                    <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to improve
+                                    prediction.
                                 </p>
                             </li>
                         </ol>
