@@ -76,11 +76,13 @@ html, body {
     color:rgb(220, 220, 220);
     text-transform: uppercase;
 }
+.sidebar-nav li, .sidebar-nav-thin li {
+    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+    transition: background-color .2s linear, color 2s linear;
+}
 .sidebar-nav li{
     list-style-type: none;
     padding:15px 10px 15px 25px;
-    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
-    transition: background-color .2s linear, color 2s linear;
 }
 .sidebar-nav a{
     text-decoration: none;
@@ -94,10 +96,10 @@ html, body {
     /* font-size: 1.5em; */
     margin-right: 10px;
 }
-.sidebar-nav li:hover{
+.sidebar-nav li:hover, .sidebar-nav-thin li:hover{
     background-color: rgba(0, 0, 0, 0.2);
 }
-.sidebar-nav li:hover a{
+.sidebar-nav li:hover a, .sidebar-nav-thin li:hover a{
     color:white;
 }
 
@@ -180,13 +182,14 @@ html, body {
 #exploration{
     border-top: 1px solid rgb(208, 208, 208);
     padding-bottom: 50px;
+    min-height: 100%;
 }
 
 /* SIDEBAR NAVIGATION EXPLORATION */
 .sidebar-nav-thin{
     height: 100%;
     position: fixed;
-    width: 50px;
+    width: 100px;
     color:rgb(220, 220, 220);
     text-align: center;
 }
@@ -194,15 +197,12 @@ html, body {
     text-decoration: none; 
     color:inherit;
 }
-.sidebar-nav-thin li:first-child{
-    padding-top:50%;
-}
-.sidebar-nav-thin i{
-    padding-bottom: 45%;
+.sidebar-nav-thin li{
+    height:100px;
 }
 .exp-background{
     background: white;
-    margin-left:50px
+    margin-left:100px
 }
 .exp-background .exp-marge{
     padding:5% 10%;

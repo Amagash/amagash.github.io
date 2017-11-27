@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-    <title>Naive Bayes</title>
+    <title>SVM</title>
     <!-- prettyprint -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <!-- responsive -->
@@ -40,13 +40,13 @@
         <div class="exp-marge">
             <div class="exp-title">
                 <h1>
-                    Gaussian Naive Bayes
+                    Support Vector Machine
                 </h1>
             </div>
             <div class='exp-content'>
                 <section id='car'>
                     <h2>
-                        Gaussian Naive Bayes for self-driving car
+                        Support vector machine for self-driving car
                     </h2>
                     <div>
                         <div class='intro'>
@@ -63,7 +63,7 @@
                                 </li>
                             </ul>
                             <p>
-                                I will describe the procedure I went through step by step using Gaussian Naive Bayes as classifiers.
+                                I will describe the procedure I went through step by step using Support Vector Machine (SVM) as classifiers.
                             </p>
 
                         </div>
@@ -194,7 +194,7 @@ def makeTerrainData(n_points):
                                     labeled 'slow' and 'fast'.
                                 </p>
                                 <div class="images">
-                                    <img src='../../../assets/images/exploration/naive-bayes/nb-testset.png' </li>
+                                    <img src='../../../assets/images/exploration/decision-tree/dt-testset.png' </li>
                                     <p class='fig-title'>Testing set plotted with their labels</p>
                                     <p class='fig-legend'>
                                         Testing set includes all features_test (grade, bumpiness) with their labels_test (slow or fast)
@@ -205,19 +205,22 @@ def makeTerrainData(n_points):
                                 <p>
                                     Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
                                     We will use the
-                                    <a href='https://goo.gl/7U5eU6' target="_blank">class sklearn.naive_bayes.GaussianNB</a>.
+                                    <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>. It can take several parameters, but we will only focus on
+                                    <b>C</b>,
+                                    <b>kernel</b> and
+                                    <b>gamma</b>.
                                 </p>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
-from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
 ### generate the dataset for 1000 points (see previous code)
 features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
 
-### create the classifier
-clf = GaussianNB()
+### create the classifier. Here min_samples_split is set to 2.
+clf = SVC(kernel='rbf', C=10000.0)
 
 ### fit the training set
 clf.fit(features_train, labels_train)
@@ -231,18 +234,31 @@ accuracy = accuracy_score(labels_test, pred)
                             </pre>
                                 <p>
                                     Here I plotted the points from the testing set (features_test) with their labels (labels_test). On top is the prediction
-                                    made by the classifier after fitting on the training set.
+                                    made by the classifier after fitting on the training set. We can see that the classifier
+                                    makes a pretty good job at separating the points.
                                 </p>
-                                <div class="images">
-                                    <img src='../../../assets/images/exploration/naive-bayes/nb-car.png' </li>
-                                    <p class='fig-title'>Decision tree with min_samples_split = 2</p>
-                                    <p class='fig-legend'></p>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-2.png' </li>
+                                            <p class='fig-title'>Decision tree with min_samples_split = 2</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-50.png' </li>
+                                            <p class="fig-title">Decision tree with min_samples_split = 50</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <p>
                                     <table class="table">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">Classifier</th>
+                                                <th scope="col">min_samples_split</th>
                                                 <th scope="col">Training time (sec)</th>
                                                 <th scope="col">Predict time (sec)</th>
                                                 <th scope="col">Accuracy</th>
@@ -250,13 +266,27 @@ accuracy = accuracy_score(labels_test, pred)
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">Gaussian Naive Bayes</th>
-                                                <td>0.003</td>
+                                                <th scope="row">2</th>
                                                 <td>0.001</td>
-                                                <td>0.884</td>
+                                                <td>0.000</td>
+                                                <td>0.908</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">50</th>
+                                                <td>0.001</td>
+                                                <td>0.000</td>
+                                                <td>0.912</td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                </p>
+                                <p>
+                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2. A low
+                                    <b>min_samples_split</b> means more edges to the tree so a more precise classification on
+                                    the training set but not necessarily more accuracy on the test set because this can lead
+                                    to
+                                    <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to improve
+                                    prediction.
                                 </p>
                             </li>
                         </ol>
