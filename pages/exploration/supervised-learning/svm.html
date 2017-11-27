@@ -202,14 +202,54 @@ def makeTerrainData(n_points):
                                 </div>
                             </li>
                             <li>
-                                <p>
-                                    Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
-                                    We will use the
-                                    <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>. It can take several parameters, but we will only focus on
-                                    <b>C</b>,
-                                    <b>kernel</b> and
-                                    <b>gamma</b>.
-                                </p>
+
+                                Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
+                                We will use the
+                                <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>. It can take several parameters, but we will only focus on
+                                <b>C</b>,
+                                <b>kernel</b> and
+                                <b>gamma</b>.
+                                <div class='row no-gutters d-flex align-items-center'>
+                                    <div class="col-md-8 col-sm-12">
+                                        <b>C</b>: (Default = 1.0) Controls the tradeoff between smooth decision boundary and
+                                        classifying training points correctly. A large value of C will allow to include more
+                                        training points therefore leading to a more intricate boundary. Here in the scheme
+                                        the orange line represents a low value of C and the green line represents a high
+                                        value of C.
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <img src="../../../assets/images/exploration/svm/svm-c-param.png">
+                                    </div>
+                                </div>
+                                <div class='row no-gutters d-flex align-items-center'>
+                                    <div class="col-md-8 col-sm-12">
+                                        <p>
+                                            <b>Kernel</b>: (default = 'rbf') Can be ‘linear, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
+                                            or a callable. It's a function that takes a low dimensional input space or feature
+                                            space and map it to a higher dimensional space. Therefore something that is not
+                                            linearly separable can be turned into a separable problem.
+                                        </p>
+                                        <div class='text-center'>
+                                            <img width="60%" src="../../../assets/images/exploration/svm/svm-kernel-param2.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <img src="../../../assets/images/exploration/svm/svm-kernel-param.png">
+                                    </div>
+                                </div>
+                                <div class='row no-gutters d-flex align-items-center'>
+                                    <div class="col-md-8 col-sm-12">
+                                        <b>gamma</b>: (Default = auto) Defines how far the influence of a single training example
+                                        reaches. A High gamma value means only the closest points to the decision boundary
+                                        will carry the weigth leading to a smoother boundary. One the other hand a low gamma
+                                        value means even the points far away from the decision boundary have a weigth leading
+                                        to a more wiggly boundary.
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <img src="../../../assets/images/exploration/svm/svm-gamma-param.png">
+                                    </div>
+                                </div>
+
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
@@ -219,7 +259,7 @@ from sklearn.metrics import accuracy_score
 ### generate the dataset for 1000 points (see previous code)
 features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
 
-### create the classifier. Here min_samples_split is set to 2.
+### create the classifier
 clf = SVC(kernel='rbf', C=10000.0)
 
 ### fit the training set
@@ -232,62 +272,278 @@ prediction = clf.predict(features_test)
 accuracy = accuracy_score(labels_test, pred)
                                 </code>
                             </pre>
+                            </li>
+                            <li>
                                 <p>
                                     Here I plotted the points from the testing set (features_test) with their labels (labels_test). On top is the prediction
-                                    made by the classifier after fitting on the training set. We can see that the classifier
-                                    makes a pretty good job at separating the points.
+                                    made by the classifier after fitting on the training set. We can play with the previously
+                                    cited features to find the best accuracy.
                                 </p>
+                                <h3>
+                                    Kernel and gamma
+                                </h3>
                                 <div class='row no-gutters'>
                                     <div class="col-md-6 col-sm-12">
                                         <div class="images">
-                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-2.png' </li>
-                                            <p class='fig-title'>Decision tree with min_samples_split = 2</p>
-                                            <p class='fig-legend'></p>
+                                            <img src='../../../assets/images/exploration/svm/linear-gamma1.png' </li>
+                                            <p class='fig-title'>SVM with kernel = 'linear'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1</p>
                                         </div>
 
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <div class="images">
-                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-50.png' </li>
-                                            <p class="fig-title">Decision tree with min_samples_split = 50</p>
-                                            <p class='fig-legend'></p>
+                                            <img src='../../../assets/images/exploration/svm/rbf-gamma1.png' </li>
+                                            <p class="fig-title">SVM with kernel = 'rbf'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1</p>
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/poly-gamma1.png' </li>
+                                            <p class='fig-title'>SVM with kernel = 'poly'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/sigmoid-gamma1.png' </li>
+                                            <p class="fig-title">SVM with kernel = 'sigmoid'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="responsive-wrapper">
                                     <table class="table">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th scope="col">min_samples_split</th>
-                                                <th scope="col">Training time (sec)</th>
-                                                <th scope="col">Predict time (sec)</th>
-                                                <th scope="col">Accuracy</th>
+                                                <th>Kernel
+                                                    <br/> gamma = 1
+                                                    <br/> C = 1
+                                                    <br/>
+                                                </th>
+                                                <th>Training time (sec)</th>
+                                                <th>Predict time (sec)</th>
+                                                <th>Accuracy</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">2</th>
+                                                <th>linear</th>
+                                                <td>0.004</td>
                                                 <td>0.001</td>
-                                                <td>0.000</td>
-                                                <td>0.908</td>
+                                                <td>0.920</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">50</th>
+                                                <th>rbf</th>
+                                                <td>0.008</td>
+                                                <td>0.002</td>
+                                                <td>0.916</td>
+                                            </tr>
+                                            <tr>
+                                                <th>poly</th>
+                                                <td>0.004</td>
                                                 <td>0.001</td>
-                                                <td>0.000</td>
-                                                <td>0.912</td>
+                                                <td>0.920</td>
+                                            </tr>
+                                            <tr>
+                                                <th>sigmoid</th>
+                                                <td>0.012</td>
+                                                <td>0.003</td>
+                                                <td>0.900</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </p>
+                                </div>
+
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/linear-gamma1000.png' </li>
+                                            <p class='fig-title'>SVM with kernel = 'linear'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1000</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/rbf-gamma1000.png' </li>
+                                            <p class="fig-title">SVM with kernel = 'rbf'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/poly-gamma1000.png' </li>
+                                            <p class='fig-title'>SVM with kernel = 'poly'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1000</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/sigmoid-gamma1000.png' </li>
+                                            <p class="fig-title">SVM with kernel = 'sigmoid'</p>
+                                            <p class='fig-legend'>C = 1, gamma = 1000</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 <p>
-                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2. A low
-                                    <b>min_samples_split</b> means more edges to the tree so a more precise classification on
-                                    the training set but not necessarily more accuracy on the test set because this can lead
-                                    to
-                                    <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to improve
-                                    prediction.
+                                    <div class="responsive-wrapper">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Kernel
+                                                        <br/> gamma = 1000
+                                                        <br/> C = 1
+                                                        <br/>
+                                                    </th>
+                                                    <th>Training time (sec)</th>
+                                                    <th>Predict time (sec)</th>
+                                                    <th>Accuracy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>linear</th>
+                                                    <td>0.004</td>
+                                                    <td>0.001</td>
+                                                    <td>0.920</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>rbf</th>
+                                                    <td>0.044</td>
+                                                    <td>0.006</td>
+                                                    <td>
+                                                        <span style="color:blue">0.924</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>poly</th>
+                                                    <td>
+                                                        <span style="color:red">61.041</span>
+                                                    </td>
+                                                    <td>0.001</td>
+                                                    <td>0.912</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>sigmoid</th>
+                                                    <td>0.008</td>
+                                                    <td>0.002</td>
+                                                    <td>
+                                                        <span style="color:red">0.664</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </p>
+                                <h3>
+                                    The C parameter
+                                </h3>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/rbf-c1.png' </li>
+                                            <p class='fig-title'>SVM with C = 1</p>
+                                            <p class='fig-legend'>kernel = 'rbf', gamma = default</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/rbf-c1000.png' </li>
+                                            <p class="fig-title">SVM with C = 1 000</p>
+                                            <p class='fig-legend'>kernel = 'rbf', gamma = default</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/rbf-c10000.png' </li>
+                                            <p class='fig-title'>SVM with C = 10 000</p>
+                                            <p class='fig-legend'>kernel = 'rbf', gamma = default</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/svm/rbf-c1000000.png' </li>
+                                            <p class="fig-title">SVM with C = 1 000 000</p>
+                                            <p class='fig-legend'>kernel = 'rbf', gamma = default</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="responsive-wrapper">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>C
+                                                    <br/> gamma = default
+                                                    <br/> Kernel = 'rbf'
+                                                    <br/>
+                                                </th>
+                                                <th>Training time (sec)</th>
+                                                <th>Predict time (sec)</th>
+                                                <th>Accuracy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>0.009</td>
+                                                <td>0.002</td>
+                                                <td>0.920</td>
+                                            </tr>
+                                            <tr>
+                                                <th>100</th>
+                                                <td>0.010</td>
+                                                <td>0.001</td>
+                                                <td>
+                                                    0.916
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>1 000</th>
+                                                <td>
+                                                    0.012
+                                                </td>
+                                                <td>0.001</td>
+                                                <td>0.924</td>
+                                            </tr>
+                                            <tr>
+                                                <th>10 000</th>
+                                                <td>0.021</td>
+                                                <td>0.001</td>
+                                                <td>
+                                                    0.932
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>100 000</th>
+                                                <td>0.132</td>
+                                                <td>0.001</td>
+                                                <td>
+                                                    0.944
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>1 000 000</th>
+                                                <td><span style="color:red">1.473</span></td>
+                                                <td>0.001</td>
+                                                <td>
+                                                        <span style="color:blue">0.948</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </li>
                         </ol>
                     </div>
