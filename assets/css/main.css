@@ -194,9 +194,11 @@ html, body {
     text-decoration: none; 
     color:inherit;
 }
+.sidebar-nav-thin li:first-child{
+    padding-top:50%;
+}
 .sidebar-nav-thin i{
-    font-size: 2.25rem;
-    padding:20px 0;
+    padding-bottom: 45%;
 }
 .exp-background{
     background: white;
@@ -214,6 +216,14 @@ html, body {
 .exp-background .exp-content .images{
     text-align: center;
 }
+.exp-background .exp-content .images .fig-title{
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.exp-background .exp-content .images .fig-legend{
+    font-style: italic;
+}
+
 .exp-background .exp-content img{
     max-width: 100%;
 }

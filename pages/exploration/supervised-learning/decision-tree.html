@@ -24,7 +24,12 @@
         <ul>
             <li>
                 <a href='../../../index.html'>
-                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href=#car>
+                    <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
@@ -37,38 +42,39 @@
                 </h1>
             </div>
             <div class='exp-content'>
-                <h2>
-                    Decision trees for self-driving car
-                </h2>
-                <div>
-                    <div class='intro'>
-                        <p>
-                            We want to train a car to decide weither or not it can drive faster or if it should slow down depending on the terrain. Two
-                            features will be taken into account in this project :
-                        </p>
-                        <ul class='in-paragraph'>
-                            <li>
-                                Bumpiness: the more bumps on the road, the slower the car should go.
-                            </li>
-                            <li>
-                                Steepness: the steeper the road, the slower the car should go.
-                            </li>
-                        </ul>
-                        <p>
-                            I will describe the procedure I went through step by step using decision trees as classifiers.
-                        </p>
-
-                    </div>
-                    </p>
-                    <ol>
-                        <li>
+                <section id='car'>
+                    <h2>
+                        Decision trees for self-driving car
+                    </h2>
+                    <div>
+                        <div class='intro'>
                             <p>
-                                We first need to create a dataset of terrain with the features bumpiness and steepness along with a label "fast" or "slow".
-                                From this labeled dataset, we will be able to build a decision tree to help the car make
-                                it's decision : "Should I go slow or fast?"
+                                We want to train a car to decide weither or not it can drive faster or if it should slow down depending on the terrain. Two
+                                features will be taken into account in this project :
+                            </p>
+                            <ul class='in-paragraph'>
+                                <li>
+                                    Bumpiness: the more bumps on the road, the slower the car should go.
+                                </li>
+                                <li>
+                                    Steepness: the steeper the road, the slower the car should go.
+                                </li>
+                            </ul>
+                            <p>
+                                I will describe the procedure I went through step by step using decision trees as classifiers.
                             </p>
 
-                            <pre class="prettyprint">
+                        </div>
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    We first need to create a dataset of terrain with the features bumpiness and steepness along with a label "fast" or "slow".
+                                    From this labeled dataset, we will be able to build a decision tree to help the car make
+                                    it's decision : "Should I go slow or fast?"
+                                </p>
+
+                                <pre class="prettyprint">
                                 <code class="language-python">
 import random
 def makeTerrainData(n_points):
@@ -99,168 +105,191 @@ def makeTerrainData(n_points):
     return features_train, labels_train, features_test, labels_test
                                 </code>
                             </pre>
-                            <p>
-                                The outputs are as follows for n_points = 10 :
-                            </p>
-                            <table class="table table-bordered text-justify">
-                                <thead>
-                                    <tr>
-                                        <th colspan="2">features_train</th>
-                                        <th>labels_train</th>
-                                        <th colspan="2">features_test</th>
-                                        <th>labels_test</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>grade</td>
-                                        <td>bumpiness</td>
-                                        <td>slow = 1.0 | fast = 0.0</td>
-                                        <td>grade</td>
-                                        <td>bumpiness</td>
-                                        <td>slow = 1.0 | fast = 0.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.64</td>
-                                        <td>0.22</td>
-                                        <td>1.0</td>
-                                        <td>0.09</td>
-                                        <td>0.59</td>
-                                        <td>0.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.03</td>
-                                        <td>0.51</td>
-                                        <td>0.0</td>
-                                        <td>0.42</td>
-                                        <td>0.81</td>
-                                        <td>1.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.28</td>
-                                        <td>0.03</td>
-                                        <td>0.0</td>
-                                        <td>0.03</td>
-                                        <td>0.01</td>
-                                        <td>0.0</td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.22</td>
-                                        <td>0.20</td>
-                                        <td>0.0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.74</td>
-                                        <td>0.64</td>
-                                        <td>1.0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.68</td>
-                                        <td>0.54</td>
-                                        <td>1.0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>0.89</td>
-                                        <td>0.22</td>
-                                        <td>1.0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p>
-                                For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
-                                'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
-                                generated has two coordinates bumpiness and grade. When we plot the test points (features_test)
-                                - representing 25% of our generated data - we can see the pattern separating the points labeled
-                                'slow' and 'fast'.
-                            </p>
-                            <div class="images">
-                                <img src='../../../assets/images/exploration/decision-tree/plot-test.png' </li>
-                            </div>
-                        </li>
-                        <li>
-                            <p>
-                                Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
-                            </p>
-                            <pre class="prettyprint">
-                                <code class="language-python">
-from prep_terrain_data import makeTerrainData
-from sklearn import tree
-
-### generate the dataset for 1000 points (see previous code)
-features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
-
-### function for classifier
-def classify(features_train, labels_train, min_samples_split):
-    clf = tree.DecisionTreeClassifier(min_samples_split=min_samples_split)
-    fitting = clf.fit(features_train, labels_train)
-    return fitting
-
-clf = classify(features_train, labels_train, min_samples_split)
-pred = clf.predict(features_test)
-                                </code>
-                            </pre>
-
-                            <div class='row no-gutters'>
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="images">
-                                        <img src='../../../assets/images/exploration/decision-tree/dt-car-2.png' </li>
-                                        <p>Decision tree with min_samples_split = 2</p>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="images">
-                                        <img src='../../../assets/images/exploration/decision-tree/dt-car-50.png' </li>
-                                        <p>Decision tree with min_samples_split = 50</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>
-                                <table class="table">
-                                    <thead class="thead-light">
+                                <p>
+                                    The outputs are as follows for n_points = 10 :
+                                </p>
+                                <table class="table table-bordered text-justify">
+                                    <thead>
                                         <tr>
-                                            <th scope="col">min_samples_split</th>
-                                            <th scope="col">Training time (sec)</th>
-                                            <th scope="col">Predict time (sec)</th>
-                                            <th scope="col">Accuracy</th>
+                                            <th colspan="2">features_train</th>
+                                            <th>labels_train</th>
+                                            <th colspan="2">features_test</th>
+                                            <th>labels_test</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row">2</th>
-                                            <td>0.001</td>
-                                            <td>0.000</td>
-                                            <td>0.908</td>
+                                            <td>grade</td>
+                                            <td>bumpiness</td>
+                                            <td>slow = 1.0 | fast = 0.0</td>
+                                            <td>grade</td>
+                                            <td>bumpiness</td>
+                                            <td>slow = 1.0 | fast = 0.0</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">50</th>
-                                            <td>0.001</td>
-                                            <td>0.000</td>
-                                            <td>0.912</td>
+                                            <td>0.64</td>
+                                            <td>0.22</td>
+                                            <td>1.0</td>
+                                            <td>0.09</td>
+                                            <td>0.59</td>
+                                            <td>0.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.03</td>
+                                            <td>0.51</td>
+                                            <td>0.0</td>
+                                            <td>0.42</td>
+                                            <td>0.81</td>
+                                            <td>1.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.28</td>
+                                            <td>0.03</td>
+                                            <td>0.0</td>
+                                            <td>0.03</td>
+                                            <td>0.01</td>
+                                            <td>0.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.22</td>
+                                            <td>0.20</td>
+                                            <td>0.0</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.74</td>
+                                            <td>0.64</td>
+                                            <td>1.0</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.68</td>
+                                            <td>0.54</td>
+                                            <td>1.0</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0.89</td>
+                                            <td>0.22</td>
+                                            <td>1.0</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </p>
+                                <p>
+                                    For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
+                                    'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
+                                    generated has two coordinates bumpiness and grade. When we plot the test points (features_test)
+                                    - representing 25% of our generated data - we can see the pattern separating the points
+                                    labeled 'slow' and 'fast'.
+                                </p>
+                                <div class="images">
+                                    <img src='../../../assets/images/exploration/decision-tree/dt-testset.png' </li>
+                                    <p class='fig-title'>Testing set plotted with their labels</p>
+                                    <p class='fig-legend'>
+                                        Testing set includes all features_test (grade, bumpiness) with their labels_test 
+                                        (slow or fast).
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
+                                    We will use the <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>. It can take several parameters,
+                                    but we will only focus on the <b>min_samples_split</b> which determines the number of samples ending up in each leafs of the tree.
+                                </p>
+                                <pre class="prettyprint">
+                                <code class="language-python">
+from prep_terrain_data import makeTerrainData
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+
+### generate the dataset for 1000 points (see previous code)
+features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
+
+### create the classifier. Here min_samples_split is set to 2.
+clf = tree.DecisionTreeClassifier(min_samples_split= 2)
+
+### fit the training set
+clf.fit(features_train, labels_train)
+
+### now let's make predictions on the test set
+prediction = clf.predict(features_test)
+
+### measure of the accuracy score by comparing the prediction with the actual labels of the testing set
+accuracy = accuracy_score(labels_test, pred)
+                                </code>
+                            </pre>
                             <p>
-                                We can see that a low min_samples_split doesn't necessarily means lead to a better accuracy. Indeed, we need to ne careful
-                                of overfitting the traning set leading to a loss in accuracy when analyzing a testing set.
-                                However for both example, the prediction accuracy is nonetheless very good.
+                                Here I plotted the points from the testing set (features_test) with their labels (labels_test).
+                                On top is the prediction made by the classifier after fitting on the training set. We can see 
+                                that the classifier makes a pretty good job at separating the points.
                             </p>
-                        </li>
-                    </ol>
-                </div>
+                                <div class='row no-gutters'>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-2.png' </li>
+                                            <p class='fig-title'>Decision tree with min_samples_split = 2</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="images">
+                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-50.png' </li>
+                                            <p class="fig-title">Decision tree with min_samples_split = 50</p>
+                                            <p class='fig-legend'></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">min_samples_split</th>
+                                                <th scope="col">Training time (sec)</th>
+                                                <th scope="col">Predict time (sec)</th>
+                                                <th scope="col">Accuracy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>0.001</td>
+                                                <td>0.000</td>
+                                                <td>0.908</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">50</th>
+                                                <td>0.001</td>
+                                                <td>0.000</td>
+                                                <td>0.912</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </p>
+                                <p>
+                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2.
+                                    A low <b>min_samples_split</b> means more edges to the tree so a more precise classification
+                                    on the training set but not necessarily more accuracy on the test set because this
+                                    can lead to <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to 
+                                    improve prediction.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+                <section id='dt-emails'>
+
+                </section>
             </div>
         </div>
     </div>
