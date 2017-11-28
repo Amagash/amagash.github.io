@@ -51,255 +51,228 @@
                     <div>
                         <div class='intro'>
                             <p>
-                                Regression allows to estimate the relationship among variables giving a continuous output. Here we'll see how the features
-                                Age and Net worth are related in the dataset of the Enron Corpus.
+                                Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                                corporate fraud, known since as the
+                                <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails
+                                and financial data was made public after Federal investigation.
                             </p>
-                            <ul class='in-paragraph'>
-                                <li>
-                                    Bumpiness: the more bumps on the road, the slower the car should go.
-                                </li>
-                                <li>
-                                    Steepness: the steeper the road, the slower the car should go.
-                                </li>
-                            </ul>
                             <p>
-                                I will describe the procedure I went through step by step using decision trees as classifiers.
+                                In this project, we will use the power of regression to predict financial data for Enron employees and associates.
                             </p>
-
                         </div>
                         </p>
                         <ol>
                             <li>
                                 <p>
-                                    We first need to create a dataset of terrain with the features bumpiness and steepness along with a label "fast" or "slow".
-                                    From this labeled dataset, we will be able to build a decision tree to help the car make
-                                    it's decision : "Should I go slow or fast?"
+                                    We first need to download the
+                                    <a href='https://www.cs.cmu.edu/~enron/' target='_blank'>Enron Corpus</a>
+                                    (this might take a while, like more than an hour) and unzip the file (which can take a while too). There is 156 people in
+                                    this dataset each one identified by their last name and the first letter of their first
+                                    name.
                                 </p>
-
+                            </li>
+                            <li>
+                                <p>
+                                    Let's take a look at the data. The dataset for the project can be read as a dictionary where each key is a person and its
+                                    value is a dictionnary containing all the possible feature. Here is an example of one
+                                    of the entry :
+                                </p>
+                                <pre class="prettyprint">
+                                        <code class="language-python">
+{'ALLEN PHILLIP K': {'bonus': 4175000,
+'deferral_payments': 2869717,
+'deferred_income': -3081055,
+'director_fees': 'NaN',
+'email_address': 'phillip.allen@enron.com',
+'exercised_stock_options': 1729541,
+'expenses': 13868,
+'from_messages': 2195,
+'from_poi_to_this_person': 47,
+'from_this_person_to_poi': 65,
+'loan_advances': 'NaN',
+'long_term_incentive': 304805,
+'other': 152,
+'poi': False,
+'restricted_stock': 126027,
+'restricted_stock_deferred': -126027,
+'salary': 201955,
+'shared_receipt_with_poi': 1407,
+'to_messages': 2902,
+'total_payments': 4484442,
+'total_stock_value': 1729541}
+}
+                                        </code>
+                                    </pre>
+                            </li>
+                            <li>
+                                <p>
+                                    Let's see if there is any correlation between the features "salary" and "bonus". Training-testing sets are needed in regression
+                                    to make predictions. We therefore need to split our data into training and testing sets.
+                                </p>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 ### Modified from: Udacity - Intro to Machine Learning
 
-import random
-def makeTerrainData(n_points):
-    random.seed(42)
-    ### generate random data for both features 'grade' and 'bumpy' with an error
-    grade = [random.random() for ii in range(0,n_points)]
-    bumpy = [random.random() for ii in range(0,n_points)]
-    error = [random.random() for ii in range(0,n_points)]
+import pickle
+from feature_format import featureFormat, targetFeatureSplit
+from sklearn.model_selection import train_test_split
 
-    ### data are labeled depending on their features and error.
-    ### label "slow" if labels = 1.0 
-    ### label "fast" if labels = 0.0
-    labels = [round(grade[ii]*bumpy[ii]+0.3+0.1*error[ii]) for ii in range(0,n_points)]
+##########################################################################
+### Split data
 
-    ### adjust labels for extreme cases (>0.8) of bumpiness or steepness
-    for ii in range(0, len(y)):
-        if grade[ii]>0.8 or bumpy[ii]>0.8:
-            labels[ii] = 1.0
+### A pickle document was created by the instructors of the course.
+### To find it, see the full project on github
+dictionary = pickle.load( open("../final_project/final_project_dataset_modified.pkl", "r") )
 
-    ### split into train set (75% of data generated) and test sets (25% of data generated)
-    features = [[gg, ss] for gg, ss in zip(grade, bumpy)]
-    split = int(0.75*n_points)
-    features_train = features[0:split]
-    features_test  = features[split:]
-    labels_train = labels[0:split]
-    labels_test  = labels[split:]
+### Create a list with first the target feature ("bonus")
+### and second the input feature ("salary")
+features_list = ["bonus", "salary"]
 
-    return features_train, labels_train, features_test, labels_test
+### FeatureFormat converts data from the dictionary format to an
+### (n x k) python list that's ready for training an sklearn algorithm
+data = featureFormat(dictionary, features_list, remove_any_zeroes=True)
+
+### targetFeatureSplit separates out the first feature (should be the target)
+### from the others. The function returns targets in in its own list
+### and all of the other features in a separate list
+target, features = targetFeatureSplit(data)
+
+### train_test_split splits the data into training and testing sets
+feature_train, feature_test, target_train, target_test = \
+    train_test_split(features, target, test_size=0.5, random_state=42)
+
+##########################################################################
+### Draw the scatterplot
+for feature, target in zip(feature_test, target_test):
+    plt.scatter( feature, target, color='r' )
+for feature, target in zip(feature_train, target_train):
+    plt.scatter( feature, target, color=train_color )
+
+### Add labels
+plt.scatter(feature_test[0], target_test[0], color='r', label="Test")
+plt.scatter(feature_train[0], target_train[0], color='b', label="Train")
+
+### Add axis labels
+plt.xlabel(features_list[1])
+plt.ylabel(features_list[0])
+
+### Add legend
+lgd = plt.legend(bbox_to_anchor=(0, 1.02, 1, 0.102), loc=3, ncol=2)
+plt.savefig("figure.png", bbox_extra_artists=(lgd,), bbox_inches='tight')
+plt.show()
+
                                 </code>
                             </pre>
-                                <p>
-                                    The outputs are as follows for n_points = 10 :
-                                </p>
-                                <div class='responsive-wrapper'>
-                                    <table class="table table-bordered text-justify">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">features_train</th>
-                                                <th>labels_train</th>
-                                                <th colspan="2">features_test</th>
-                                                <th>labels_test</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>grade</td>
-                                                <td>bumpiness</td>
-                                                <td>slow = 1.0 | fast = 0.0</td>
-                                                <td>grade</td>
-                                                <td>bumpiness</td>
-                                                <td>slow = 1.0 | fast = 0.0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.64</td>
-                                                <td>0.22</td>
-                                                <td>1.0</td>
-                                                <td>0.09</td>
-                                                <td>0.59</td>
-                                                <td>0.0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.03</td>
-                                                <td>0.51</td>
-                                                <td>0.0</td>
-                                                <td>0.42</td>
-                                                <td>0.81</td>
-                                                <td>1.0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.28</td>
-                                                <td>0.03</td>
-                                                <td>0.0</td>
-                                                <td>0.03</td>
-                                                <td>0.01</td>
-                                                <td>0.0</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.22</td>
-                                                <td>0.20</td>
-                                                <td>0.0</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.74</td>
-                                                <td>0.64</td>
-                                                <td>1.0</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.68</td>
-                                                <td>0.54</td>
-                                                <td>1.0</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>0.89</td>
-                                                <td>0.22</td>
-                                                <td>1.0</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class='row no-gutters d-flex align-items-center'>
+                                    <div class="col-md-4 col-sm-12">
+                                        Once plotted we can see the repartition of the people and their bonus with respect to their salary.
+                                    </div>
+                                    <div class="col-md-8 col-sm-12">
+                                        <img src="../../../assets/images/exploration/regression/plot-training-test-sets.png">
+                                    </div>
                                 </div>
-                                <p>
-                                    For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
-                                    'grade' on the y axis. Each feature in a gradient between 0 and 1. Each point previously
-                                    generated has two coordinates bumpiness and grade. When we plot the test points (features_test)
-                                    - representing 25% of our generated data - we can see the pattern separating the points
-                                    labeled 'slow' and 'fast'.
-                                </p>
-                                <div class="images">
-                                    <img src='../../../assets/images/exploration/decision-tree/dt-testset.png' </li>
-                                    <p class='fig-title'>Testing set plotted with their labels</p>
-                                    <p class='fig-legend'>
-                                        Testing set includes all features_test (grade, bumpiness) with their labels_test (slow or fast)
+                                <li>
+                                    <p>
+                                        We can now draw the regression and try to predict the bonus (target feature) of a person with its salary (input feature).
+                                        We'll use the
+                                        <a href='https://goo.gl/TnjGQ8' target='_blank'>class sklearn.linear_model.LinearRegression()</a>.
                                     </p>
-                                </div>
-                            </li>
-                            <li>
-                                <p>
-                                    Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
-                                    We will use the
-                                    <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>. It can take several parameters, but
-                                    we will only focus on the
-                                    <b>min_samples_split</b> which determines the number of samples ending up in each leafs
-                                    of the tree.
-                                </p>
-                                <pre class="prettyprint">
-                                <code class="language-python">
-from prep_terrain_data import makeTerrainData
-from sklearn import tree
-from sklearn.metrics import accuracy_score
+                                    <pre class="prettyprint">
+                                            <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
 
-### generate the dataset for 1000 points (see previous code)
-features_train, labels_train, features_test, labels_test = makeTerrainData(1000)
+from sklearn import linear_model
 
-### create the classifier. Here min_samples_split is set to 2.
-clf = tree.DecisionTreeClassifier(min_samples_split= 2)
+regression = linear_model.LinearRegression()
 
-### fit the training set
-clf.fit(features_train, labels_train)
+### Fitting linear model on the training set
+reg = regression.fit(feature_train, target_train)
+slope = reg.coef_
+intercept = reg.intercept_
 
-### now let's make predictions on the test set
-prediction = clf.predict(features_test)
+### Prediction on the test set for each input.
+### Returns a list of all bonuses predicted for 
+### each salary in the feature_test
+prediction = reg.predict(feature_test)
 
-### measure of the accuracy score by comparing the prediction with the actual labels of the testing set
-accuracy = accuracy_score(labels_test, pred)
-                                </code>
-                            </pre>
-                                <p>
-                                    Here I plotted the points from the testing set (features_test) with their labels (labels_test). On top is the prediction
-                                    made by the classifier after fitting on the training set. We can see that the classifier
-                                    makes a pretty good job at separating the points.
-                                </p>
-                                <div class='row no-gutters'>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="images">
-                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-2.png' </li>
-                                            <p class='fig-title'>Decision tree with min_samples_split = 2</p>
-                                            <p class='fig-legend'></p>
+### Returns the coefficient of determination R^2 of the prediction
+accuracy = reg.score(feature_test, target_test)
+
+### Add the regression to the plot
+plt.plot(feature_test, reg.predict(feature_test))
+                                            </code>
+                                        </pre>
+                                    <div class='row no-gutters d-flex align-items-center'>
+                                        <div class="col-md-4 col-sm-12">
+                                            <p>
+                                                Parameters calculated :
+                                                <ul>
+                                                    <li>
+                                                        Slope = 5.44814029
+                                                    </li>
+                                                    <li>
+                                                        Intercept = -102360.543294
+                                                    </li>
+                                                    <li>
+                                                        Regression score = -1.4849924173685092
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <p>
+                                                Considering that the best possible regression score is 1.0, the score we get with the "bonus" and "salary" features is pretty
+                                                bad. This means that "salary" is not a good feature to predict the target
+                                                feature "bonus" in this dataset.
+                                                <br/>
+                                                <br/> Let's look at other features that might be correlated with the "bonus" feature
+                                                like the “long_term_incentive” feature.
+                                            </p>
                                         </div>
-
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="images">
-                                            <img src='../../../assets/images/exploration/decision-tree/dt-car-50.png' </li>
-                                            <p class="fig-title">Decision tree with min_samples_split = 50</p>
-                                            <p class='fig-legend'></p>
+                                        <div class="col-md-8 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/regression/reg-train.png" </li>
+                                                <p class='fig-title'>Linear regression on the training set</p>
+                                                <p class='fig-legend'>target feature = "bonus", input feature = "salary"
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <p>
-                                    <div class="responsive-wrapper">
-                                        <table class="table">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>min_samples_split</th>
-                                                    <th>Training time (sec)</th>
-                                                    <th>Predict time (sec)</th>
-                                                    <th>Accuracy</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th>2</th>
-                                                    <td>0.001</td>
-                                                    <td>0.000</td>
-                                                    <td>0.908</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>50</th>
-                                                    <td>0.001</td>
-                                                    <td>0.000</td>
-                                                    <td>0.912</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                </li>
+                                <li>
+                                    Here is the plot for the prediction of "bonus" with the “long_term_incentive” feature as input.
+                                    <div class='row no-gutters d-flex align-items-center'>
+                                        <div class="col-md-4 col-sm-12">
+                                            <p>
+                                                Parameters calculated :
+                                                <ul>
+                                                    <li>
+                                                        Slope = 1.19214699
+                                                    </li>
+                                                    <li>
+                                                        Intercept = 554478.756215
+                                                    </li>
+                                                    <li>
+                                                        Regression score = -0.59271289994986409
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                            <p>
+                                                Here the regression score is better which shows that the "long_term_incentive" feature
+                                                is better at predicting the "bonus" of a person than the "salary" feature in this dataset.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-8 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/regression/reg-bonus-incentive.png" </li>
+                                                <p class='fig-title'>Linear regression on the training set</p>
+                                                <p class='fig-legend'>target feature = "bonus", input feature = "long_term_incentive"
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </p>
-                                <p>
-                                    Here we can see that the accuracy is higher when min_samples_split = 50 than when min_samples_split=2. A low
-                                    <b>min_samples_split</b> means more edges to the tree so a more precise classification on
-                                    the training set but not necessarily more accuracy on the test set because this can lead
-                                    to
-                                    <b>overfitting</b>. We need to be aware of the fine tuning of parameters in order to improve
-                                    prediction.
-                                </p>
+                                </li>
                             </li>
                         </ol>
                     </div>
-                </section>
-                <section id='dt-emails'>
-
                 </section>
             </div>
         </div>

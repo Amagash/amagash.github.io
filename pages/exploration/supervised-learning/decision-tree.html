@@ -211,9 +211,23 @@ def makeTerrainData(n_points):
                                     We will use the
                                     <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>. It can take several parameters, but
                                     we will only focus on the
-                                    <b>min_samples_split</b> which determines the number of samples ending up in each leafs
+                                    <b>min_samples_split</b> which determines the number of samples ending up in each leaves
                                     of the tree.
                                 </p>
+                                <div class='row no-gutters d-flex align-items-center'>
+                                    <div class="col-md-6 col-sm-12">
+                                        In a classification tree, leaves represent class labels and branches represent conjunctions of features that lead to those
+                                        class labels. Variables can take a discrete set of values. It is different then regression
+                                        trees where the target variable can take continuous values. (more on
+                                        <a href='https://goo.gl/vktXRk' target='_blank'>Udacity</a>).
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <a href='https://goo.gl/vktXRk' target='_blank'>
+                                            <img src="../../../assets/images/exploration/decision-tree/dt-scheme.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <br/>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
