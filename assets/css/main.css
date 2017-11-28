@@ -12,7 +12,7 @@ html, body {
     width: 100%;
     height: 100%;
     font-family: 'Playfair Display';
-    background: url('../images/low_contrast_linen.png') repeat;
+    background: url('../images/design/low_contrast_linen.png') repeat;
     scroll-behavior: smooth;
 }
 a{
@@ -24,13 +24,12 @@ a:hover{
 }
 
 /* SIDEBAR */
+
 .sidebar{
-    height: 100%;
-    position: fixed;
-    
+    padding:3em 0;
 }
+
 .sidebar h1{
-    margin: 8% 0 0 0;
     font-weight: 600;
     font-size: 1.5em;
     text-align: center;
@@ -70,16 +69,17 @@ a:hover{
 /* PICTURE */
 .photo {
     text-align: center;
-    padding:20px 0px;
+    padding-top:20px;
 }
 .photo img{
     /* box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2); */
-    width: 50%;
+    width: 20%;
     border-radius: 50%;
 }
 
 /* SIDEBAR NAVIGATION */
 .sidebar-nav{
+    display:none;
     font-family: 'Playfair Display';
     color:rgb(220, 220, 220);
     text-transform: uppercase;
@@ -114,11 +114,11 @@ a:hover{
 
 /* ABOUT ME */
 #about {
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(
         rgba(214, 220, 220, 0.9), 
         rgba(214, 220, 220, 0.9)
-        ), url('../images/jump.jpg') no-repeat center center scroll;
+        ), url('../images/home/jump.jpg') no-repeat center center scroll;
     background-size: cover;
     color: #555;
 }
@@ -152,7 +152,7 @@ a:hover{
     background: white;
 }
 #certifications{
-    min-height: 100%;
+    min-height: 100vh;
 }
 .content h1{
     padding: 50px 0 20px 0;
@@ -197,7 +197,7 @@ a:hover{
 #exploration{
     border-top: 1px solid rgb(208, 208, 208);
     padding-bottom: 50px;
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 /* SIDEBAR NAVIGATION EXPLORATION */
@@ -253,4 +253,20 @@ a:hover{
 }
 .exp-background .in-paragraph {
     padding-left: 50px;
+}
+
+@media (min-width:992px) {
+    .sidebar{
+        height: 100%;
+        position: fixed;
+    }
+    .sidebar-nav{
+        display: block;
+    }
+    .photo img{
+        width:50%;
+    }
+    .photo {
+        padding-bottom: 20px;
+    }
 }
