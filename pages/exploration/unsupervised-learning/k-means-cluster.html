@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>K-Means Clustering</title>
+    <!-- prettyprint -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <!-- responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://use.fontawesome.com/1ebdada262.js"></script>
+    <!-- code editor -->
+    <link rel="stylesheet" href="../../../assets/css/code-theme-lakeside-custom.css">
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../../../assets/css/tooltip.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+
+</head>
+
+<body>
+    <div class="sidebar-nav-thin">
+        <ul>
+            <a href='../../../index.html'>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
+                    <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+            <a href=#enron>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
+                    <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="exp-background">
+        <div class="exp-marge">
+            <div class="exp-title">
+                <h1>
+                    K-Means Clustering
+                </h1>
+            </div>
+            <div class='exp-content'>
+                <section id='enron'>
+                    <h2>
+                        K-means Clustering on the Enron Corpus
+                    </h2>
+                    <div>
+                        <div class='intro'>
+                            <p>
+                                Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                                corporate fraud, known since as the
+                                <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails
+                                and financial data was made public after Federal investigation.
+                            </p>
+                            <p>
+                                In this project, I will apply k-means clustering to the Enron financial data.
+                            </p>
+                        </div>
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    We first need to download the
+                                    <a href='https://www.cs.cmu.edu/~enron/' target='_blank'>Enron Corpus</a>
+                                    (this might take a while, like more than an hour) and unzip the file (which can take a while too). There is 156 people in
+                                    this dataset each one identified by their last name and the first letter of their first
+                                    name.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Let's take a look at the data. The dataset for the project can be read as a dictionary where each key is a person and its
+                                    value is a dictionnary containing all the possible feature. Here is an example of one
+                                    of the entry :
+                                </p>
+                                <pre class="prettyprint">
+                                        <code class="language-python">
+{'ALLEN PHILLIP K': {'bonus': 4175000,
+'deferral_payments': 2869717,
+'deferred_income': -3081055,
+'director_fees': 'NaN',
+'email_address': 'phillip.allen@enron.com',
+'exercised_stock_options': 1729541,
+'expenses': 13868,
+'from_messages': 2195,
+'from_poi_to_this_person': 47,
+'from_this_person_to_poi': 65,
+'loan_advances': 'NaN',
+'long_term_incentive': 304805,
+'other': 152,
+'poi': False,
+'restricted_stock': 126027,
+'restricted_stock_deferred': -126027,
+'salary': 201955,
+'shared_receipt_with_poi': 1407,
+'to_messages': 2902,
+'total_payments': 4484442,
+'total_stock_value': 1729541}
+}
+                                        </code>
+                                    </pre>
+                            </li>
+                            <li>
+                                <p>
+                                    I will first perfom k-means based on just two features, "salary" and "exercised_stock_options".
+                                </p>
+                                <pre class="prettyprint">
+                                <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+import pickle
+from feature_format import featureFormat, targetFeatureSplit
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+
+##########################################################################
+### Split data
+
+### A pickle document was created by the instructors of the course.
+### To find it, see the full project on github
+dictionary = pickle.load( open("../final_project/final_project_dataset_modified.pkl", "r") )
+
+### Create a list of features with the first one being "poi"
+poi  = "poi"
+feature_1 = "salary"
+feature_2 = "exercised_stock_options"
+features_list = [poi, feature_1, feature_2]
+
+### FeatureFormat converts data from the dictionary format to an
+### (n x k) python list that's ready for training an sklearn algorithm
+data = featureFormat(dictionary, features_list, remove_any_zeroes=True)
+
+### targetFeatureSplit separates out the first feature (should be the target)
+### from the others. The function returns targets in in its own list
+### and all of the other features in a separate list
+poi, finance_features = targetFeatureSplit( data )
+
+### Feature scaling
+scaler = MinMaxScaler(feature_range=(0, 1), copy=True)
+scaler.fit(finance_features)
+finance_features = scaler.transform(finance_features)
+
+##########################################################################
+### Draw the scatterplot
+
+for f1, f2 in finance_features:
+    plt.scatter( f1, f2 )
+
+### Add axis labels
+plt.xlabel(features_list[1])
+plt.ylabel(features_list[2])
+plt.savefig("test.png")
+plt.show()
+                                </code>
+                            </pre>
+                                <div class="images">
+                                    <img src="../../../assets/images/exploration/k-means-cluster/exercised-salary.png" </li>
+                                    <p class='fig-title'>Scaled repartition of the people and their "exercised_stock_options" with respect to
+                                        their "salary"</p>
+                                    <p class='fig-legend'>
+                                    </p>
+                                </div>
+
+                                <li>
+                                    <p>
+                                        The
+                                        <a href='https://goo.gl/TJd73V' target='_blank'>class sklearn.cluster.KMeans()</a>
+                                        was used for clustering.
+                                    </p>
+                                    <pre class="prettyprint">
+                                            <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+from sklearn.cluster import KMeans
+
+kmeans = KMeans(n_clusters=2, random_state=0).fit(finance_features)
+
+### Fitting linear model on the training set
+kfit = kmeans.fit(finance_features)
+
+### Cluster prediction
+pred = kmeans.predict(finance_features)
+
+##########################################################################
+### Draw the scatterplot with n_clusters
+
+for ii, pp in enumerate(pred):
+    plt.scatter(features[ii][0], features[ii][1], color=colors[pred[ii]])
+
+### Add axis labels
+plt.xlabel(features_list[1])
+plt.ylabel(features_list[2])
+plt.savefig("test.png")
+plt.show()
+                                            </code>
+                                        </pre>
+                                    <div class='row no-gutters d-flex align-items-center'>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/k-means-cluster/ex-sal-cluster.png" </li>
+                                                <p class='fig-title'>K-means cluster with 2 features</p>
+                                                <p class='fig-legend'>feature1 = "salary", feature2 = "exercised_stock_options"
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/k-means-cluster/ex-sal-cluster-x.png" </li>
+                                                <p class='fig-title'>K-means cluster with 2 features with marked "poi"</p>
+                                                <p class='fig-legend'>Red crosses show "poi"
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>Two clusters are identified in blue and yellow. The scheme with marked "poi" shows that
+                                        the yellow cluster identify some "poi" but still a lot of them fall into the blue
+                                        cluster. More features might be necessary for better clustering.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        A third feature "total_payments" is taken into account.
+                                    </p>
+                                    <pre class="prettyprint">
+                                            <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+import pickle
+from feature_format import featureFormat, targetFeatureSplit
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+
+##########################################################################
+### Split data
+
+dictionary = pickle.load( open("../final_project/final_project_dataset_modified.pkl", "r") )
+
+poi  = "poi"
+feature_1 = "salary"
+feature_2 = "exercised_stock_options"
+feature_3 = "total_payments"
+features_list = [poi, feature_1, feature_2, feature_3]
+
+data = featureFormat(dictionary, features_list, remove_any_zeroes=True)
+poi, finance_features = targetFeatureSplit( data )
+
+scaler = MinMaxScaler(feature_range=(0, 1), copy=True)
+scaler.fit(finance_features)
+finance_features = scaler.transform(finance_features)
+
+##########################################################################
+### Draw the scatterplot
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+for f1, f2, f3 in finance_features:
+    ax.scatter( f1, f2, f3 )
+
+### Add labels
+ax.set_xlabel(features_list[1])
+ax.set_ylabel(features_list[2])
+ax.set_zlabel(features_list[3])
+plt.savefig("test.png")
+plt.show()
+                                            </code>
+                                        </pre>
+                                    <div class="images">
+                                        <img src="../../../assets/images/exploration/k-means-cluster/3d.png" </li>
+                                        <p class='fig-title'>Scaled repartition of the people with 3 features</p>
+                                        <p class='fig-legend'>feature1 = "salary", feature2 = "exercised_stock_options", feature3 = "total_payments"
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>
+                                        Clustering with three features (n_clusters = 2)
+                                    </p>
+                                    <pre class="prettyprint">
+                                                <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+from sklearn.cluster import KMeans
+
+kmeans = KMeans(n_clusters=2, random_state=0).fit(finance_features)
+
+### Fitting linear model on the training set
+kfit = kmeans.fit(finance_features)
+
+### Cluster prediction
+pred = kmeans.predict(finance_features)
+
+##########################################################################
+### Draw the scatterplot with n_clusters
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+colors = ['b', 'y']
+for ii, pp in enumerate(pred):
+    plt.scatter(features[ii][0], features[ii][1], features[ii][2] color=colors[pred[ii]])
+
+### Add axis labels
+ax.set_xlabel(features_list[1])
+ax.set_ylabel(features_list[2])
+ax.set_zlabel(features_list[3])
+
+plt.savefig("test.png")
+plt.show()
+                                                </code>
+                                            </pre>
+                                    <div class='row no-gutters d-flex align-items-center'>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/k-means-cluster/3d-notmarked.png" </li>
+                                                <p class='fig-title'>K-means cluster (n_clusters = 2) with 3 features</p>
+                                                <p class='fig-legend'>feature1 = "salary", feature2 = "exercised_stock_options", feature3 = "total_payments"
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="images">
+                                                <img src="../../../assets/images/exploration/k-means-cluster/3d-marked.png" </li>
+                                                <p class='fig-title'>K-means cluster (n_clusters = 2) with 3 features with marked "poi"</p>
+                                                <p class='fig-legend'>Red crosses show "poi"
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Clustering (n_clusters = 2) with the 3 features "salary", "exercised_stock_options" and "total_payments" makes some point
+                                        from the yellow to switch into the blue group. Accuracy calculations are:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            Global Accuracy = 87.770 %
+                                        </li>
+                                        <li>
+                                            Poi Accuracy = 11.111 %
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        <br/> A Global Accuracy of 87.770 % shows that the clustering does a decent job at finding
+                                        if a person is or is not a "poi". However, when looking only at the "poi" feature
+                                        the accuracy drops to 11.111 % meaning that the clustering is not very good at finding
+                                        "poi".
+                                    </p>
+
+                                    </p>
+                                    <li>
+                                        <p>
+                                            Clustering with three features (n_clusters = 3)
+                                        </p>
+                                        <div class='row no-gutters d-flex align-items-center'>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="images">
+                                                    <img src="../../../assets/images/exploration/k-means-cluster/3-clusters-notmarked.png" </li>
+                                                    <p class='fig-title'>K-means cluster (n_clusters = 3) with 3 features</p>
+                                                    <p class='fig-legend'>feature1 = "salary", feature2 = "exercised_stock_options", feature3 =
+                                                        "total_payments"
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <div class="images">
+                                                    <img src="../../../assets/images/exploration/k-means-cluster/3-cluster-marked.png" </li>
+                                                    <p class='fig-title'>K-means cluster (n_clusters = 3) with 3 features with marked "poi"</p>
+                                                    <p class='fig-legend'>Red crosses show "poi"
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Clustering with n_clusters = 3 when the outcome expected is binary (is "poi" or is not "poi") might seem odd. However, the
+                                            classification can be considered as a gradient as of probability where we consider
+                                            three states :
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Blue : low probability poi
+                                            </li>
+                                            <li>
+                                                Yellow : probable poi
+                                            </li>
+                                            <li>
+                                                Purple : high probability poi
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <br/> Accuracy calculations for this clusters are :
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                Global Accuracy = 50.360 %
+                                            </li>
+                                            <li>
+                                                Poi Accuracy (when considering only probable poi) = 83.333 %
+                                            </li>
+                                            <li>
+                                                Poi Accuracy (when considering both probable poi and high probability poi)= 94.444 %
+                                            </li>
+                                            <li>
+                                                Non-Poi Accuracy = 43.802 %
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <br/> The Global Accuracy drops drastically to 50.360 % showing that the cluster is more prone
+                                            to get false positive. However, the poi Accuracy rises to 94.444 % when considering both probable poi and 
+                                            high probability poi.
+                                        </p>
+                                    </li>
+                                </li>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
