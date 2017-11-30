@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../../../assets/css/tooltip.css">
     <!-- CSS -->
     <link rel="stylesheet" href="../../../assets/css/main.css">
+    <!-- math formulas -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 </head>
 
@@ -29,9 +31,19 @@
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
+            <a href=#intro>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Introduction'>
+                    <i class="fa fa-angle-double-up fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
             <a href=#car>
                 <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
                     <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+            <a href=#enron>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
+                    <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
         </ul>
@@ -44,6 +56,80 @@
                 </h1>
             </div>
             <div class='exp-content'>
+                <section id='intro'>
+                    <h2>
+                        Introduction
+                    </h2>
+                    <div class='intro'>
+                        Naive Bayes methods are a set of supervised learning algorithms based on applying Bayes’ theorem with the “naive” assumption
+                        of independence between every pair of features.
+                    </div>
+                    <br/>
+                    <p>
+                        <b>The advantages of Naive Bayes include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            They require a small amount of training data to estimate the necessary parameters.
+                        </li>
+                        <li>
+                            Naive Bayes learners and classifiers can be extremely fast compared to more sophisticated methods.
+                        </li>
+                        <li>
+                            The decoupling of the class conditional feature distributions means that each distribution can be independently estimated
+                            as a one dimensional distribution. This in turn helps to alleviate problems stemming from the
+                            curse of dimensionality.
+                        </li>
+                    </ul>
+                    <p>
+                        <b>The disadvantages of Naive Bayes include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            Although naive Bayes is known as a decent classifier, it is known to be a bad estimator, so the probability outputs from
+                            predict_proba are not to be taken too seriously.
+                        </li>
+                    </ul>
+                    <div class='row no-gutters d-flex align-items-center'>
+                        <div class="col-md-6 col-sm-12">
+                            <p>
+                                Here is an example with a test cancer diagnostic (more on
+                                <a href='https://goo.gl/syWgMi' target='_blank'>Udacity</a>) :
+                            </p>
+                            <ul>
+                                <li>
+                                    <b>P(C)</b> : The
+                                    <b>prior</b> condition here is the probability of having cancer.
+                                </li>
+                                <li>
+                                    <b>P(pos|C)</b> : The
+                                    <b>sensitivity</b> is the probability of the test being positive given that the person has
+                                    cancer.
+                                </li>
+                                <li>
+                                    <b>P(neg|¬C)</b> : The
+                                    <b>specificity</b> if the probability of the test being negative given that the person does
+                                    not have cancer.
+                                </li>
+                            </ul>
+                            <p>
+                                $$P(C|pos) = {P(pos|C) P(C)\over P(pos)}$$
+                            </p>
+
+                            <p>
+                                $$P(¬C|pos) = {P(pos|¬C) P(¬C)\over P(pos)}$$
+                            </p>
+                            <!-- <p>
+                                $$P(x_i|y) = {1\over \sqrt{2 \pi \sigma^2_y }}( exp {-(x_i - \mu _y)^2 \over 2\sigma ^2_y}).$$
+                            </p> -->
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <a href='https://goo.gl/syWgMi' target='_blank'>
+                                <img src="../../../assets/images/exploration/naive-bayes/nb-scheme.png">
+                            </a>
+                        </div>
+                    </div>
+                </section>
                 <section id='car'>
                     <h2>
                         Gaussian Naive Bayes for self-driving car
@@ -209,21 +295,9 @@ def makeTerrainData(n_points):
                                 <p>
                                     Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
                                     We will use the
-                                    <a href='https://goo.gl/7U5eU6' target="_blank">class sklearn.naive_bayes.GaussianNB</a>.
+                                    <a href='https://goo.gl/7U5eU6' target="_blank">class sklearn.naive_bayes.GaussianNB()</a>.
                                 </p>
-                                <div class='row no-gutters d-flex align-items-center'>
-                                        <div class="col-md-6 col-sm-12">
-                                            In a classification tree, leaves represent class labels and branches represent conjunctions of features that lead to those
-                                            class labels. Variables can take a discrete set of values. It is different then regression
-                                            trees where the target variable can take continuous values. (more on
-                                            <a href='https://goo.gl/syWgMi' target='_blank'>Udacity</a>).
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <a href='https://goo.gl/syWgMi' target='_blank'>
-                                                <img src="../../../assets/images/exploration/naive-bayes/nb-scheme.png">
-                                            </a>
-                                        </div>
-                                    </div>
+
                                 <br/>
                                 <pre class="prettyprint">
                                 <code class="language-python">
@@ -281,6 +355,84 @@ accuracy = accuracy_score(labels_test, pred)
                             </li>
                         </ol>
                     </div>
+                </section>
+                <section id='enron'>
+                    <h2>
+                        Identifying emails authors with Gaussian Naive Bayes
+                    </h2>
+                    <div class='intro'>
+                        <p>
+                            Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                            corporate fraud, known since as the
+                            <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails and
+                            financial data was made public after Federal investigation.
+                        </p>
+                        <p>
+                            In this project, I will apply Gaussian Naive Bayes to identify authors of emails in the Enron Corpus.
+                        </p>
+                    </div>
+                    <br/>
+                    <ol>
+                        <li>
+                            <p>
+                                A big first part of the project is the preprocessing of emails which is described in more details
+                                <a href="../../exploration/supervised-learning/text-learning.html">here</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Once the emails are preprocessed and separated into a training and a testing set, the
+                                <a href='https://goo.gl/7U5eU6' target="_blank">class sklearn.naive_bayes.GaussianNB()</a>
+                                can be used.
+                            </p>
+                            <pre class="prettyprint">
+                                        <code class="language-python">
+from sklearn.naive_bayes import GaussianNB
+
+def nb_email(features_train, features_test, labels_train, labels_test):
+    clf = GaussianNB()
+    t0 = time()
+    pred = clf.fit(features_train, labels_train)
+    print ("naive bayes training time :", round(time() - t0, 3), "s")
+    t0 = time()
+    pred2 = clf.predict(features_test)
+    print ("naive bayes predict time :", round(time() - t0, 3), "s")
+    accuracy = accuracy_score(labels_test, pred2)
+    print ("naive bayes accuracy :", accuracy)
+
+def main():
+    from_sara_file = "from_sara.txt"
+    from_chris_file = "from_chris.txt"
+    word_data, from_data = preprocess_email(from_sara_file, from_chris_file)
+    features_train, features_test, labels_train, labels_test = vectorize(word_data, from_data)
+    nb_email(features_train, features_test, labels_train, labels_test)
+
+if __name__ == '__main__':
+    main()
+                                        </code>
+                                    </pre>
+                            <div class="responsive-wrapper">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Classification algorithm</th>
+                                            <th>Training time (sec)</th>
+                                            <th>Predict time (sec)</th>
+                                            <th>Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Gaussian Naive Bayes</th>
+                                            <td>9.182</td>
+                                            <td>1.905</td>
+                                            <td>97.497</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
                 </section>
             </div>
         </div>

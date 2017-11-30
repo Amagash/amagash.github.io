@@ -29,9 +29,19 @@
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
+            <a href=#intro>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Introduction'>
+                    <i class="fa fa-angle-double-up fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
             <a href=#car>
                 <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
                     <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+            <a href=#enron>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
+                    <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
         </ul>
@@ -44,6 +54,99 @@
                 </h1>
             </div>
             <div class='exp-content'>
+                <section id='intro'>
+                    <h2>
+                        Introduction
+                    </h2>
+                    <div class='intro'>
+                        Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers
+                        detection.
+                    </div>
+                    <p>
+                        <br/><b>The advantages of support vector machines are :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            Effective in high dimensional spaces.
+                        </li>
+                        <li>
+                            Still effective in cases where number of dimensions is greater than the number of samples.
+                        </li>
+                        <li>
+                            Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
+                        </li>
+                        <li>
+                            Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is
+                            also possible to specify custom kernels.
+                        </li>
+                    </ul>
+                    <p>
+                        <b>The disadvantages of support vector machines include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and
+                            regularization term is crucial.
+                        </li>
+                        <li>
+                            SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation.
+                        </li>
+                    </ul>
+                    <p>
+                        In the following projects, the <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a> will be used. Several
+                        parameters can be set in this function such as the Kernel, gamma and C.
+                    </p>
+                    <div class='row no-gutters d-flex align-items-center'>
+                        <div class="col-md-8 col-sm-12">
+                            <b>C</b>: (Default = 1.0) Controls the tradeoff between smooth decision boundary and classifying
+                            training points correctly. A large value of C will allow to include more training points therefore
+                            leading to a more intricate boundary. Here in the scheme the orange line represents a low value
+                            of C and the green line represents a high value of C (more on
+                            <a href='https://goo.gl/3B6d8K' target='_blank'>Udacity</a>).
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <a href='https://goo.gl/3B6d8K' target='_blank'>
+                                <img src="../../../assets/images/exploration/svm/svm-c-param.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class='row no-gutters d-flex align-items-center'>
+                        <div class="col-md-8 col-sm-12">
+                            <p>
+                                <b>Kernel</b>: (default = 'rbf') Can be ‘linear, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’ or
+                                a callable. It's a function that takes a low dimensional input space or feature space and
+                                map it to a higher dimensional space. Therefore something that is not linearly separable
+                                can be turned into a separable problem (more on
+                                <a href='https://goo.gl/9T2WrG' target='_blank'>Udacity</a>).
+                            </p>
+                            <div class='text-center'>
+                                <a href='https://goo.gl/9T2WrG' target='_blank'>
+                                    <img width="60%" src="../../../assets/images/exploration/svm/svm-kernel-param2.png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <a href='https://goo.gl/9T2WrG' target='_blank'>
+                                <img src="../../../assets/images/exploration/svm/svm-kernel-param.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class='row no-gutters d-flex align-items-center'>
+                        <div class="col-md-8 col-sm-12">
+                            <b>gamma</b>: (Default = auto) Defines how far the influence of a single training example reaches.
+                            A High gamma value means only the closest points to the decision boundary will carry the weigth
+                            leading to a smoother boundary. One the other hand a low gamma value means even the points far
+                            away from the decision boundary have a weigth leading to a more wiggly boundary (more on
+                            <a href='https://goo.gl/92xYiL' target='_blank'>Udacity</a>).
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <a href='https://goo.gl/92xYiL' target='_blank'>
+                                <img src="../../../assets/images/exploration/svm/svm-gamma-param.png">
+                            </a>
+                        </div>
+                    </div>
+                    <br/>
+                </section>
                 <section id='car'>
                     <h2>
                         Support vector machine for self-driving car
@@ -114,82 +217,82 @@ def makeTerrainData(n_points):
                                     The outputs are as follows for n_points = 10 :
                                 </p>
                                 <div class="responsive-wrapper">
-                                <table class="table table-bordered text-justify">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">features_train</th>
-                                            <th>labels_train</th>
-                                            <th colspan="2">features_test</th>
-                                            <th>labels_test</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                            <td>grade</td>
-                                            <td>bumpiness</td>
-                                            <td>slow = 1.0 | fast = 0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.64</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td>0.09</td>
-                                            <td>0.59</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.03</td>
-                                            <td>0.51</td>
-                                            <td>0.0</td>
-                                            <td>0.42</td>
-                                            <td>0.81</td>
-                                            <td>1.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.28</td>
-                                            <td>0.03</td>
-                                            <td>0.0</td>
-                                            <td>0.03</td>
-                                            <td>0.01</td>
-                                            <td>0.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.22</td>
-                                            <td>0.20</td>
-                                            <td>0.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.74</td>
-                                            <td>0.64</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.68</td>
-                                            <td>0.54</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>0.89</td>
-                                            <td>0.22</td>
-                                            <td>1.0</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table table-bordered text-justify">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">features_train</th>
+                                                <th>labels_train</th>
+                                                <th colspan="2">features_test</th>
+                                                <th>labels_test</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                                <td>grade</td>
+                                                <td>bumpiness</td>
+                                                <td>slow = 1.0 | fast = 0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.64</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td>0.09</td>
+                                                <td>0.59</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.03</td>
+                                                <td>0.51</td>
+                                                <td>0.0</td>
+                                                <td>0.42</td>
+                                                <td>0.81</td>
+                                                <td>1.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.28</td>
+                                                <td>0.03</td>
+                                                <td>0.0</td>
+                                                <td>0.03</td>
+                                                <td>0.01</td>
+                                                <td>0.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.22</td>
+                                                <td>0.20</td>
+                                                <td>0.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.74</td>
+                                                <td>0.64</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.68</td>
+                                                <td>0.54</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>0.89</td>
+                                                <td>0.22</td>
+                                                <td>1.0</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <p>
                                     For n_points = 1000, we get the following repartition of test points. We consider the feature 'bumpiness' on the x-axis and
@@ -207,66 +310,14 @@ def makeTerrainData(n_points):
                                 </div>
                             </li>
                             <li>
-
-                                Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
-                                We will use the
-                                <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>. It can take several parameters, but we will only focus on
-                                <b>C</b>,
-                                <b>kernel</b> and
-                                <b>gamma</b>.
-                                <div class='row no-gutters d-flex align-items-center'>
-                                    <div class="col-md-8 col-sm-12">
-                                        <b>C</b>: (Default = 1.0) Controls the tradeoff between smooth decision boundary and
-                                        classifying training points correctly. A large value of C will allow to include more
-                                        training points therefore leading to a more intricate boundary. Here in the scheme
-                                        the orange line represents a low value of C and the green line represents a high
-                                        value of C (more on
-                                        <a href='https://goo.gl/3B6d8K' target='_blank'>Udacity</a>).
-                                    </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <a href='https://goo.gl/3B6d8K' target='_blank'>
-                                            <img src="../../../assets/images/exploration/svm/svm-c-param.png">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class='row no-gutters d-flex align-items-center'>
-                                    <div class="col-md-8 col-sm-12">
-                                        <p>
-                                            <b>Kernel</b>: (default = 'rbf') Can be ‘linear, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
-                                            or a callable. It's a function that takes a low dimensional input space or feature
-                                            space and map it to a higher dimensional space. Therefore something that is not
-                                            linearly separable can be turned into a separable problem (more on
-                                            <a href='https://goo.gl/9T2WrG'
-                                                target='_blank'>Udacity</a>).
-                                        </p>
-                                        <div class='text-center'>
-                                            <a href='https://goo.gl/9T2WrG' target='_blank'>
-                                                <img width="60%" src="../../../assets/images/exploration/svm/svm-kernel-param2.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <a href='https://goo.gl/9T2WrG' target='_blank'>
-                                            <img src="../../../assets/images/exploration/svm/svm-kernel-param.png">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class='row no-gutters d-flex align-items-center'>
-                                    <div class="col-md-8 col-sm-12">
-                                        <b>gamma</b>: (Default = auto) Defines how far the influence of a single training example
-                                        reaches. A High gamma value means only the closest points to the decision boundary
-                                        will carry the weigth leading to a smoother boundary. One the other hand a low gamma
-                                        value means even the points far away from the decision boundary have a weigth leading
-                                        to a more wiggly boundary (more on
-                                        <a href='https://goo.gl/92xYiL' target='_blank'>Udacity</a>).
-                                    </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <a href='https://goo.gl/92xYiL' target='_blank'>
-                                            <img src="../../../assets/images/exploration/svm/svm-gamma-param.png">
-                                        </a>
-                                    </div>
-                                </div>
-                                <br/>
+                                <p>
+                                    Now with our training set (features_train), we can train our classifier to predict a point's label depending on its features.
+                                    We will use the
+                                    <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>. It can take several parameters, but we will only focus on
+                                    <b>C</b>,
+                                    <b>kernel</b> and
+                                    <b>gamma</b>.
+                                </p>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
@@ -566,6 +617,85 @@ accuracy = accuracy_score(labels_test, pred)
                             </li>
                         </ol>
                     </div>
+                </section>
+                <section id='enron'>
+                    <h2>
+                        Identifying emails authors with SVM
+                    </h2>
+                    <div class='intro'>
+                        <p>
+                            Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                            corporate fraud, known since as the
+                            <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails and
+                            financial data was made public after Federal investigation.
+                        </p>
+                        <p>
+                            In this project, I will apply SVM to identify authors of emails in the Enron Corpus.
+                        </p>
+                    </div>
+                    <br/>
+                    <ol>
+                        <li>
+                            <p>
+                                A big first part of the project is the preprocessing of emails which is described in more details
+                                <a href="../../exploration/supervised-learning/text-learning.html">here</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Once the emails are preprocessed and separated into a training and a testing set, the
+                                <a href='https://goo.gl/4EF7pQ' target="_blank">class sklearn.svm.SVC()</a>
+                                can be used.
+                            </p>
+                            <pre class="prettyprint">
+                                        <code class="language-python">
+from sklearn.svm import SVC
+def svm_email(features_train, features_test, labels_train, labels_test):
+    clf = SVC(kernel='rbf', C=10000)
+    t0 = time()
+    clf.fit(features_train, labels_train)
+    print ("svm training time :", round(time() - t0, 3), "s")
+    t0 = time()
+    pred = clf.predict(features_test)
+    print ("svm predict time :", round(time() - t0, 3), "s")
+    accuracy = accuracy_score(labels_test, pred)
+    print ("svm accuracy :", accuracy)
+
+def main():
+    from_sara_file = "from_sara.txt"
+    from_chris_file = "from_chris.txt"
+    word_data, from_data = preprocess_email(from_sara_file, from_chris_file)
+    features_train, features_test, labels_train, labels_test = vectorize(word_data, from_data)
+    svm_email(features_train, features_test, labels_train, labels_test)
+    
+    if __name__ == '__main__':
+        main()
+                                        </code>
+                                    </pre>
+                            <div class="responsive-wrapper">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Classification algorithm</th>
+                                            <th>Training time (sec)</th>
+                                            <th>Predict time (sec)</th>
+                                            <th>Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                SVM
+                                            </th>
+                                            <td>101.02</td>
+                                            <td>10.511</td>
+                                            <td>99.203</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
                 </section>
             </div>
         </div>

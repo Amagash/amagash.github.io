@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Text Learning</title>
+    <!-- prettyprint -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <!-- responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <!-- fontawesome -->
+    <script src="https://use.fontawesome.com/1ebdada262.js"></script>
+    <!-- code editor -->
+    <link rel="stylesheet" href="../../../assets/css/code-theme-lakeside-custom.css">
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../../../assets/css/tooltip.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+
+</head>
+
+<body>
+    <div class="sidebar-nav-thin">
+        <ul>
+            <a href='../../../index.html'>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Home'>
+                    <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+            <a href=#enron>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
+                    <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+        </ul>
+    </div>
+    <div class="exp-background">
+        <div class="exp-marge">
+            <div class="exp-title">
+                <h1>
+                    Text Learning
+                </h1>
+            </div>
+            <div class='exp-content'>
+                <section id='enron'>
+                    <h2>
+                        Identifying emails authors with Text learning
+                    </h2>
+                    <div>
+                        <div class='intro'>
+                            <p>
+                                Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                                corporate fraud, known since as the
+                                <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails
+                                and financial data was made public after Federal investigation.
+                            </p>
+                            <p>
+                                In this project, I will apply text learning to identify authors of emails in the Enron Corpus.
+                            </p>
+                        </div>
+                        <br/>
+                        <ol>
+                            <li>
+                                <p>
+                                    There is 156 people in the
+                                    <a href='https://www.cs.cmu.edu/~enron/' target='_blank'>Enron Corpus</a>
+                                    each one identified by their last name and the first letter of their first name.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    The email dataset is in the maildir directory. For this mini-project, only the emails from Sara and Chris will be analyzed.
+                                    The function parseOutText() is created to parse out all text below the metadata block
+                                    at the top of each email. It is also a step where each word is stemmed.
+                                </p>
+                                <pre class="prettyprint">
+                                        <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+from nltk.stem.snowball import SnowballStemmer
+import string
+
+def parseOutText(f):
+
+    f.seek(0)
+    all_text = f.read()
+
+    ### split off metadata
+    content = all_text.split("X-FileName:")
+    words = ""
+
+    if len(content) > 1:
+        ### remove punctuation
+        text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
+
+        ### split the text string into individual words, stem each word,
+        ### and append the stemmed word to words (make sure there's a single
+        ### space between each stemmed word)
+        words = text_string
+        word_list = (text_string.split())
+        stemmer = SnowballStemmer("english")
+
+        for word in word_list:
+            words += stemmer.stem(word) + " "
+
+    return words
+                                        </code>
+                                    </pre>
+                            </li>
+                            <li>
+                                <p>
+                                    Preprocessing the emails include getting rid of all stopwords and labeling each email. Pickle files are returned for both
+                                    email data and author label.
+                                </p>
+                                <pre class="prettyprint">
+                                <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+import pickle
+
+def preprocess_email(from_sara_file, from_chris_file):
+
+    from_sara  = open("from_sara.txt", "r")
+    from_chris = open("from_chris.txt", "r")
+
+    from_data = []
+    word_data = []
+
+    # temp_counter = 0 ### for development
+
+    for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
+         for path in from_person:
+             # temp_counter += 1
+             # if temp_counter < 200:
+                 # print path
+                 path = os.path.join('..', path[:-1])
+                 # print path
+
+                 email = open(path, "r")
+                 # print email.read()
+
+                 parsed_email = parseOutText(email)
+
+                 stopwords = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
+                 new = parsed_email
+                 for stopword in stopwords:
+                     if stopword in new:
+                         new = new.replace(stopword, '')
+                 ### append the text to word_data
+                 word_data.append(new)
+
+                 ### append a 0 to from_data if email is from Sara, and 1 if email is from Chris
+                 if name == "sara":
+                    from_data.append(0)
+                 elif name == "chris":
+                    from_data.append(1)
+
+                 email.close()
+
+    print "emails processed"
+    # pprint.pprint (word_data)
+    from_sara.close()
+    from_chris.close()
+
+    pickle.dump( word_data, open("word_data.pkl", "w") )
+    pickle.dump( from_data, open("from_data.pkl", "w") )
+
+    return ("word_data.pkl", "from_data.pkl")
+                                </code>
+                            </pre>
+                                <li>
+                                    <p>
+                                        TfIdf vectorization (Term frequency Inverse document frequency) using
+                                        <a href="https://goo.gl/uJqcE5">
+                                            class sklearn.feature_extraction.text.TfidfVectorizer()</a>:
+                                    </p>
+                                    <pre class="prettyprint">
+                                        <code class="language-python">
+### Modified from: Udacity - Intro to Machine Learning
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_selection import SelectPercentile, f_classif
+from sklearn.model_selection import train_test_split
+
+def vectorize(word_data_file, from_data_file):
+    words_file_handler = open(word_data_file, "r")
+    word_data = cPickle.load(words_file_handler)
+    words_file_handler.close()
+
+    authors_file_handler = open(from_data_file, "r")
+    authors = pickle.load(authors_file_handler)
+    authors_file_handler.close()
+
+
+    ### test_size is the percentage of events assigned to the test set
+    ### (remainder go into training)
+    features_train, features_test, labels_train, labels_test = train_test_split(word_data, authors, test_size=0.1,
+                                                                                random_state=42)
+
+    tidf_vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
+                                stop_words='english')
+
+    features_train_transformed = tidf_vectorizer.fit_transform(features_train)
+    features_test_transformed  = tidf_vectorizer.transform(features_test)
+
+    selector = SelectPercentile(f_classif, percentile=10)
+    selector.fit(features_train_transformed, labels_train)
+
+    features_train_transformed = selector.transform(features_train_transformed).toarray()
+    features_test_transformed  = selector.transform(features_test_transformed).toarray()
+
+    return features_train_transformed, features_test_transformed, labels_train, labels_test
+                                        </code>
+                                    </pre>
+                                    <h3>
+                                        Comparison of different classification algorithms
+                                    </h3>
+                                    <p>
+                                        The details of each classification can be found in their respective page.
+                                    </p>
+                                    <div class="responsive-wrapper">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Classification algorithm</th>
+                                                    <th>Training time (sec)</th>
+                                                    <th>Predict time (sec)</th>
+                                                    <th>Accuracy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th><a href="../../../pages/exploration/supervised-learning/naive-bayes.html">Naive Bayes</a></th>
+                                                    <td>9.182</td>
+                                                    <td>1.905</td>
+                                                    <td>97.497</td>
+                                                </tr>
+                                                <tr>
+                                                    <th><a href="../../../pages/exploration/supervised-learning/decision-tree.html">Decision tree</a></th>
+                                                    <td>61.709</td>
+                                                    <td>0.064</td>
+                                                    <td>98.805</td>
+                                                </tr>
+                                                <tr>
+                                                    <th><a href="../../../pages/exploration/supervised-learning/svm.html">SVM</a></th>
+                                                    <td>101.02</td>
+                                                    <td>10.511</td>
+                                                    <td>99.203</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

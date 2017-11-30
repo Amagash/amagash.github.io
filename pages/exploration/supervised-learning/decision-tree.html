@@ -29,9 +29,19 @@
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
+            <a href=#intro>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Introduction'>
+                    <i class="fa fa-angle-double-up fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
             <a href=#car>
                 <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Self-driving car'>
                     <i class="fa fa-car fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
+            <a href=#enron>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
+                    <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
         </ul>
@@ -44,6 +54,86 @@
                 </h1>
             </div>
             <div class='exp-content'>
+                <section id='intro'>
+                    <h2>
+                        Introduction
+                    </h2>
+                    <div class='intro'>
+
+                        Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is
+                        to create a model that predicts the value of a target variable by learning simple decision rules
+                        inferred from the data features.
+                    </div>
+                    <br/>
+                    <p>
+                        <b>The advantages of decision trees include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            Simple to understand and to interpret. Trees can be visualised.
+                        </li>
+                        <li>
+                            Requires little data preparation. Other techniques often require data normalisation, dummy variables need to be created and
+                            blank values to be removed.
+                        </li>
+                        <li>
+                            The cost of using the tree (i.e., predicting data) is logarithmic in the number of data points used to train the tree.
+                        </li>
+                        <li>
+                            Able to handle both numerical and categorical data. Other techniques are usually specialised in analysing datasets that have
+                            only one type of variable.
+                        </li>
+                        <li>
+                            Able to handle multi-output problems.
+                        </li>
+                        <li>
+                            Uses a white box model. If a given situation is observable in a model, the explanation for the condition is easily explained
+                            by boolean logic. By contrast, in a black box model (e.g., in an artificial neural network),
+                            results may be more difficult to interpret.
+                        </li>
+                        <li>
+                            Possible to validate a model using statistical tests. That makes it possible to account for the reliability of the model.
+                        </li>
+                        <li>
+                            Performs well even if its assumptions are somewhat violated by the true model from which the data were generated.
+                        </li>
+                    </ul>
+                    <p>
+                        <b>The disadvantages of decision trees include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            Decision-tree learners can create over-complex trees that do not generalise the data well. This is called overfitting. 
+                            Playing with parameters like minimum number of samples required at
+                            a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
+                        </li>
+                        <li>
+                            Decision trees can be unstable because small variations in the data might result in a completely different tree being generated.
+                            This problem is mitigated by using decision trees within an ensemble.
+                        </li>
+                        <li>
+                            There are concepts that are hard to learn because decision trees do not express them easily, such as XOR, parity or multiplexer
+                            problems.
+                        </li>
+                        <li>
+                            Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the dataset prior
+                            to fitting with the decision tree.
+                        </li>
+                    </ul>
+                    <div class='row no-gutters d-flex align-items-center'>
+                        <div class="col-md-6 col-sm-12">
+                            In a classification tree, leaves represent class labels and branches represent conjunctions of features that lead to those
+                            class labels. Variables can take a discrete set of values. It is different then regression trees
+                            where the target variable can take continuous values (more on
+                            <a href='https://goo.gl/vktXRk' target='_blank'>Udacity</a>).
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <a href='https://goo.gl/vktXRk' target='_blank'>
+                                <img src="../../../assets/images/exploration/decision-tree/dt-scheme.png">
+                            </a>
+                        </div>
+                    </div>
+                </section>
                 <section id='car'>
                     <h2>
                         Decision trees for self-driving car
@@ -214,20 +304,6 @@ def makeTerrainData(n_points):
                                     <b>min_samples_split</b> which determines the number of samples ending up in each leaves
                                     of the tree.
                                 </p>
-                                <div class='row no-gutters d-flex align-items-center'>
-                                    <div class="col-md-6 col-sm-12">
-                                        In a classification tree, leaves represent class labels and branches represent conjunctions of features that lead to those
-                                        class labels. Variables can take a discrete set of values. It is different then regression
-                                        trees where the target variable can take continuous values. (more on
-                                        <a href='https://goo.gl/vktXRk' target='_blank'>Udacity</a>).
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <a href='https://goo.gl/vktXRk' target='_blank'>
-                                            <img src="../../../assets/images/exploration/decision-tree/dt-scheme.png">
-                                        </a>
-                                    </div>
-                                </div>
-                                <br/>
                                 <pre class="prettyprint">
                                 <code class="language-python">
 from prep_terrain_data import makeTerrainData
@@ -312,8 +388,87 @@ accuracy = accuracy_score(labels_test, pred)
                         </ol>
                     </div>
                 </section>
-                <section id='dt-emails'>
+                <section id='enron'>
+                    <h2>
+                        Identifying emails authors with Decision trees
+                    </h2>
+                    <div class='intro'>
+                        <p>
+                            Enron was one of the largest US companies in 2000. At the end of 2001, it had collapsed into bankruptcy due to widespread
+                            corporate fraud, known since as the
+                            <a href='https://en.wikipedia.org/wiki/Enron_scandal' target='_blank'>Enron scandal</a>. A vast amount of confidential information including thousands of emails and
+                            financial data was made public after Federal investigation.
+                        </p>
+                        <p>
+                            In this project, I will apply decision trees to identify authors of emails in the Enron Corpus.
+                        </p>
+                    </div>
+                    <br/>
+                    <ol>
+                        <li>
+                            <p>
+                                A big first part of the project is the preprocessing of emails which is described in more details
+                                <a href="../../exploration/supervised-learning/text-learning.html">here</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Once the emails are preprocessed and separated into a training and a testing set, the
+                                <a href='https://goo.gl/mt8vhc' target="_blank">class sklearn.tree.DecisionTreeClassifier()</a>
+                                can be used.
+                            </p>
+                            <pre class="prettyprint">
+                                    <code class="language-python">
+from sklearn import tree
+def dt_email (features_train, features_test, labels_train, labels_test):
 
+    clf = tree.DecisionTreeClassifier(min_samples_split=40)
+    t0 = time()
+    clf.fit(features_train, labels_train)
+    print ("decision tree training time :", round(time() - t0, 3), "s")
+
+    t0 = time()
+    pred = clf.predict(features_test)
+    print ("decision tree predict time :", round(time() - t0, 3), "s")
+
+    accuracy = accuracy_score(labels_test, pred)
+    print ("decision tree accuracy :", accuracy)
+
+def main():
+    from_sara_file = "from_sara.txt"
+    from_chris_file = "from_chris.txt"
+    word_data, from_data = preprocess_email(from_sara_file, from_chris_file)
+    features_train, features_test, labels_train, labels_test = vectorize(word_data, from_data)
+    dt_email(features_train, features_test, labels_train, labels_test)
+
+if __name__ == '__main__':
+    main()
+                                    </code>
+                                </pre>
+                            <div class="responsive-wrapper">
+                                <table class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Classification algorithm</th>
+                                            <th>Training time (sec)</th>
+                                            <th>Predict time (sec)</th>
+                                            <th>Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                Decision tree
+                                            </th>
+                                            <td>61.709</td>
+                                            <td>0.064</td>
+                                            <td>98.805</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
                 </section>
             </div>
         </div>

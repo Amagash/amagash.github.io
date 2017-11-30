@@ -91,11 +91,13 @@ a:hover{
 }
 .sidebar-nav li{
     list-style-type: none;
-    padding:15px 10px 15px 25px;
+    
 }
 .sidebar-nav a{
     text-decoration: none;
-    color:inherit
+    color:inherit;
+    padding:15px 10px 15px 25px;
+    display:block
 }
 .sidebar-nav li:first-child{
     border-top: solid 1px rgba(255, 255, 255, 0.3);
@@ -170,6 +172,7 @@ a:hover{
     padding: 20px 0 0 0;
     color:rgb(79, 78, 78);
 }
+
 .content img{
     height: 50px;
 }
@@ -246,6 +249,9 @@ a:hover{
 .exp-background h2{
     padding: 5% 0 2% 0;
     text-align: center;
+}
+.exp-background h3{
+    padding:10px 0;
 }
 .exp-background .intro {
     background: rgb(228, 227, 227);
