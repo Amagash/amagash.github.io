@@ -29,6 +29,11 @@
                     <i class="fa fa-home fa-fw fa-2x" aria-hidden="true"></i>
                 </li>
             </a>
+            <a href=#intro>
+                <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Introduction'>
+                    <i class="fa fa-angle-double-up fa-fw fa-2x" aria-hidden="true"></i>
+                </li>
+            </a>
             <a href=#enron>
                 <li class='d-flex justify-content-center align-items-center tooltip-right' data-tooltip='Enron Corpus'>
                     <i class="fa fa-archive fa-fw fa-2x" aria-hidden="true"></i>
@@ -44,6 +49,41 @@
                 </h1>
             </div>
             <div class='exp-content'>
+                <section id='intro'>
+                    <h2>
+                        Introduction
+                    </h2>
+                    <div class='intro'>
+                        <p>
+                            The k-Means algorithm clusters data by trying to separate samples in n groups of equal variance, minimizing a criterion known
+                            as the inertia or within-cluster sum-of-squares. This algorithm requires the number of clusters
+                            to be specified. It scales well to large number of samples and has been used across a large range
+                            of application areas in many different fields.
+                        </p>
+                    </div>
+                    <br/>
+                    <p>
+                        The k-means algorithm divides a set of N samples X into K disjoint clusters C, each described by the mean μ of the samples
+                        in the cluster. The means are commonly called the cluster “centroids”; note that they are not, in
+                        general, points from X, although they live in the same space. The k-means algorithm aims to choose
+                        centroids that minimise the inertia, or within-cluster sum of squared criterion.
+                    </p>
+                    <p>
+                        <b>The disadvantages of k-means include :</b>
+                    </p>
+                    <ul>
+                        <li>
+                            Inertia makes the assumption that clusters are convex and isotropic, which is not always the case. It responds poorly to
+                            elongated clusters, or manifolds with irregular shapes.
+                        </li>
+                        <li>
+                            Inertia is not a normalized metric: we just know that lower values are better and zero is optimal. But in very high-dimensional
+                            spaces, Euclidean distances tend to become inflated (this is an instance of the so-called “curse
+                            of dimensionality”). Running a dimensionality reduction algorithm such as PCA prior to k-means
+                            clustering can alleviate this problem and speed up the computations.
+                        </li>
+                    </ul>
+                </section>
                 <section id='enron'>
                     <h2>
                         K-means Clustering on the Enron Corpus
@@ -220,6 +260,25 @@ plt.show()
                                     <p>Two clusters are identified in blue and yellow. The scheme with marked "poi" shows that
                                         the yellow cluster identify some "poi" but still a lot of them fall into the blue
                                         cluster. More features might be necessary for better clustering.
+                                    </p>
+                                    <p>
+                                        Accuracy calculations for this clusters are :
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            Global Accuracy = 87.903 %
+                                        </li>
+                                        <li>
+                                            Poi Accuracy = 22.222 %
+                                        </li>
+                                        <li>
+                                            Non-Poi Accuracy = 99.057 %
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        <br/>Global accuracy reaches 87.903 % but poi accuracy is pretty low, which means that
+                                        the cluster is not effective at finding poi. On the other hand, the Non-Poi accuracy
+                                        is high, 99.057 %, meaning that we are less suceptible of getting false positives.
                                     </p>
                                 </li>
                                 <li>
@@ -410,9 +469,11 @@ plt.show()
                                             </li>
                                         </ul>
                                         <p>
-                                            <br/> The Global Accuracy drops drastically to 50.360 % showing that the cluster is more prone
-                                            to get false positive. However, the poi Accuracy rises to 94.444 % when considering both probable poi and 
-                                            high probability poi.
+                                            <br/> The Global Accuracy drops drastically to 50.360 % showing that the cluster is
+                                            more prone to get false positive. However, the poi Accuracy rises to 94.444 %
+                                            when considering both probable poi and high probability poi. One remarkable thing
+                                            about this clustering is that the low probability poi cluster predicts non poi
+                                            with an accuracy of 98.148 %.
                                         </p>
                                     </li>
                                 </li>
