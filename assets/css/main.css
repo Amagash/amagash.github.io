@@ -136,7 +136,7 @@ a:hover{
 }
 #about p{
     padding: 50px 0 0 0;
-    font-size: 1.45em;
+    font-size: 1.1em;
     line-height: 2em;
     color: rgb(63, 63, 63);
 }
@@ -275,5 +275,8 @@ a:hover{
     }
     .photo {
         padding-bottom: 20px;
+    }
+    #about p{
+        font-size: 1.45em;
     }
 }
