@@ -1,0 +1,47 @@
+.card {
+    box-shadow: 0 0 15px 0 rgba(46,61,73,.15);
+    background: #fff;
+    border: 1px 0px 1px 0px solid #dbe2e8;
+    padding: 1em;
+    margin-bottom: 40px;
+    height: 100%;
+    text-align: left;
+    color: #525c65;
+    }
+    
+    .card .title {
+    margin: .8em 0;
+    }
+    
+    .card .poster {
+    margin: -1em;
+    height: 180px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    }
+    
+    .card .tags {
+    color: #7d97ad;
+    list-style-type: none;
+    }
+    
+    .card .tags .tag {
+    display: inline-block;
+    margin: 0 1em 1em 0;
+    background-color: rgb(245, 245, 245);
+    padding: 5px 10px;
+    border-radius: 2px;
+    color: #5a5a5a;
+    font-size: .8em;
+    }
+
+    .card p {
+    text-align: justify;
+    }
+    
+    .card .tags .tag {
+    background-color: #f6fafc;
+    color: #8b969c;
+    border-color: #e6ebee;
+    }
