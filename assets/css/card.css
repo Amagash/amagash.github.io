@@ -45,3 +45,13 @@
     color: #8b969c;
     border-color: #e6ebee;
     }
+
+
+    .card .description {
+    text-align: justify;
+    }
+    
+    .card .links {
+    font-weight: 600;
+    text-transform: uppercase;
+    }
