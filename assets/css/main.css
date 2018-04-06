@@ -179,7 +179,7 @@ a:hover{
     list-style-type: none;
 }
 .content .container{
-    width: 85%;
+    width: 100%;
     margin:0 auto;
     text-align: center;
 }
@@ -262,6 +262,10 @@ a:hover{
 }
 
 @media (min-width:992px) {
+    .content .container{
+        width:85%;
+        }
+
     .sidebar{
         height: 100%;
         position: fixed;
