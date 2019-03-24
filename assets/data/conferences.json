@@ -183,6 +183,19 @@
         }
     },
     {
+        "id": 20171012,
+        "date": "2017-10-12",
+        "name": "Women Techmakers: Bias Busting and Android Certification",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Organizer"
+        ]
+    },
+    {
         "id": 20160205,
         "date": "2016-02-05",
         "name": "DevFest Paris",
