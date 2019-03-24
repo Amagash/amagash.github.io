@@ -1,0 +1,211 @@
+[{
+        "id": 20190627,
+        "date": "2019-06-27",
+        "name": "Sunny Tech",
+        "location": {
+            "name": "Montpellier, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://sunny-tech.io/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 20190614,
+        "date": "2019-06-14",
+        "name": "DevFest Lille",
+        "location": {
+            "name": "Lille, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devfest.gdglille.org/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 201905232,
+        "date": "2019-05-23",
+        "name": "MiXiT",
+        "location": {
+            "name": "Lyon, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://mixitconf.org/en/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 201905231,
+        "date": "2019-05-23",
+        "name": "MiXiT",
+        "location": {
+            "name": "Lyon, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://mixitconf.org/en/",
+        "talk": {
+            "title": "VS Code: Mode Collaboratif activé!"
+        }
+    },
+    {
+        "id": 201905232,
+        "date": "2019-05-15",
+        "name": "RIVIERA DEV",
+        "location": {
+            "name": "Sophia Antipolis, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://rivieradev.fr/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 20190408,
+        "date": "2019-04-08",
+        "name": "DEVOXX France",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://reg.devoxx.fr/",
+        "talk": {
+            "title": "VS Code: Mode Collaboratif activé!"
+        }
+    },
+    {
+        "id": 20190320,
+        "date": "2019-03-20",
+        "name": "Breizhcamp",
+        "location": {
+            "name": "Rennes, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.breizhcamp.org/",
+        "talk": {
+            "title": "VS Code: Mode Collaboratif activé!"
+        }
+    },
+    {
+        "id": 20190222,
+        "date": "2019-02-22",
+        "name": "DevFest du Bout du Monde",
+        "location": {
+            "name": "Brest, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devfest.duboutdumonde.bzh/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 20190208,
+        "date": "2019-02-08",
+        "name": "DevFest Paris",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Organizer"
+        ]
+    },
+    {
+        "id": 20181108,
+        "date": "2018-12-06",
+        "name": "Jems Atelier Technique",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon"
+        }
+    },
+    {
+        "id": 20181108,
+        "date": "2018-11-08",
+        "name": "DevFest Toulouse",
+        "location": {
+            "name": "Toulouse, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devfesttoulouse.fr/",
+        "talk": {
+            "title": "Tensorflow, there is no spoon",
+            "video": "https://www.youtube.com/watch?v=4QIjIoHP0x4"
+        }
+    },
+    {
+        "id": 20160205,
+        "date": "2016-02-05",
+        "name": "DevFest Paris",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Organizer"
+        ]
+    },
+    {
+        "id": 20150130,
+        "date": "2015-01-30",
+        "name": "DevFest Paris",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Organizer"
+        ]
+    }
+]
