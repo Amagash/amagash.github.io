@@ -145,7 +145,8 @@
         },
         "roles": [
             "Organizer"
-        ]
+        ],
+        "link": "https://devfest-paris-2019.firebaseapp.com/"
     },
     {
         "id": 20181108,
@@ -183,6 +184,20 @@
         }
     },
     {
+        "id": 20181031,
+        "date": "2018-10-31",
+        "name": "Lastest Firebase news by Googlers",
+        "location": {
+            "name": "Paris, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Organizer"
+        ],
+        "link": "https://www.meetup.com/gdg-paris/events/254660981/"
+    },
+    {
         "id": 20171012,
         "date": "2017-10-12",
         "name": "Women Techmakers: Bias Busting and Android Certification",
@@ -193,7 +208,8 @@
         },
         "roles": [
             "Organizer"
-        ]
+        ],
+        "link": "https://www.meetup.com/gdg-paris/events/243738676/"
     },
     {
         "id": 20160205,
@@ -206,7 +222,8 @@
         },
         "roles": [
             "Organizer"
-        ]
+        ],
+        "link": "https://www.meetup.com/gdg-paris/events/227121510/"
     },
     {
         "id": 20150130,
@@ -219,6 +236,7 @@
         },
         "roles": [
             "Organizer"
-        ]
+        ],
+        "link": "http://2015.devfest.gdgparis.com/"
     }
 ]
