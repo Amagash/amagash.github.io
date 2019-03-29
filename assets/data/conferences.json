@@ -12,6 +12,23 @@
         ],
         "link": "https://sunny-tech.io/",
         "talk": {
+            "title": "VS Code: Mode Collaboratif activé!"
+        }
+    },
+    {
+        "id": 20190627,
+        "date": "2019-06-27",
+        "name": "Sunny Tech",
+        "location": {
+            "name": "Montpellier, France",
+            "lat": 43.6110956,
+            "lng": 1.4332799
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://sunny-tech.io/",
+        "talk": {
             "title": "Tensorflow, there is no spoon"
         }
     },
