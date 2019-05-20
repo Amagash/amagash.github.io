@@ -3,9 +3,7 @@
         "date": "2019-06-27",
         "name": "Sunny Tech",
         "location": {
-            "name": "Montpellier, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Montpellier, France"
         },
         "roles": [
             "Speaker"
@@ -20,9 +18,7 @@
         "date": "2019-06-27",
         "name": "Sunny Tech",
         "location": {
-            "name": "Montpellier, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Montpellier, France"
         },
         "roles": [
             "Speaker"
@@ -37,9 +33,7 @@
         "date": "2019-06-14",
         "name": "DevFest Lille",
         "location": {
-            "name": "Lille, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Lille, France"
         },
         "roles": [
             "Speaker"
@@ -54,9 +48,7 @@
         "date": "2019-05-23",
         "name": "MiXiT",
         "location": {
-            "name": "Lyon, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Lyon, France"
         },
         "roles": [
             "Speaker"
@@ -71,9 +63,7 @@
         "date": "2019-05-23",
         "name": "MiXiT",
         "location": {
-            "name": "Lyon, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Lyon, France"
         },
         "roles": [
             "Speaker"
@@ -88,9 +78,7 @@
         "date": "2019-05-16",
         "name": "RIVIERA DEV",
         "location": {
-            "name": "Sophia Antipolis, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Sophia Antipolis, France"
         },
         "roles": [
             "Speaker"
@@ -105,9 +93,7 @@
         "date": "2019-04-18",
         "name": "DEVOXX France",
         "location": {
-            "name": "Paris, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Paris, France"
         },
         "roles": [
             "Speaker"
@@ -122,9 +108,7 @@
         "date": "2019-03-20",
         "name": "Breizhcamp",
         "location": {
-            "name": "Rennes, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Rennes, France"
         },
         "roles": [
             "Speaker"
@@ -139,16 +123,15 @@
         "date": "2019-02-22",
         "name": "DevFest du Bout du Monde",
         "location": {
-            "name": "Brest, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Brest, France"
         },
         "roles": [
             "Speaker"
         ],
         "link": "https://devfest.duboutdumonde.bzh/",
         "talk": {
-            "title": "Tensorflow, there is no spoon"
+            "title": "Tensorflow, there is no spoon",
+            "video": "https://www.youtube.com/watch?v=rJO5QpG119k&t=5s"
         }
     },
     {
@@ -156,9 +139,7 @@
         "date": "2019-02-08",
         "name": "DevFest Paris",
         "location": {
-            "name": "Paris, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Paris, France"
         },
         "roles": [
             "Organizer"
@@ -170,9 +151,7 @@
         "date": "2018-12-06",
         "name": "Jems Atelier Technique",
         "location": {
-            "name": "Paris, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Paris, France"
         },
         "roles": [
             "Speaker"
@@ -187,9 +166,7 @@
         "date": "2018-11-08",
         "name": "DevFest Toulouse",
         "location": {
-            "name": "Toulouse, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Toulouse, France"
         },
         "roles": [
             "Speaker"
@@ -219,9 +196,7 @@
         "date": "2017-10-12",
         "name": "Women Techmakers: Bias Busting and Android Certification",
         "location": {
-            "name": "Paris, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Paris, France"
         },
         "roles": [
             "Organizer"
@@ -233,9 +208,7 @@
         "date": "2016-02-05",
         "name": "DevFest Paris",
         "location": {
-            "name": "Paris, France",
-            "lat": 43.6110956,
-            "lng": 1.4332799
+            "name": "Paris, France"
         },
         "roles": [
             "Organizer"
