@@ -1,4 +1,20 @@
 [{
+    "id": 20191003,
+    "date": "2019-10-03",
+    "name": "DevFest Toulouse",
+    "location": {
+        "name": "Toulouse, France"
+    },
+    "roles": [
+        "Speaker"
+    ],
+    "link": "https://devfesttoulouse.fr/",
+    "talk": {
+        "title": "Allo Paris, ici San Francisco. Et si on codait ensemble avec VS Code?",
+        "video": "https://www.youtube.com/watch?time_continue=54&v=6KR0rNN4coU"
+    }
+},
+    {
         "id": 20190627,
         "date": "2019-06-27",
         "name": "Sunny Tech",
@@ -8,9 +24,10 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://sunny-tech.io/",
+        "link": "https://2019.sunny-tech.io/",
         "talk": {
-            "title": "VS Code: Mode Collaboratif activé!"
+            "title": "J'ai fait un plan à 3 avec VS Code !",
+            "video": "https://www.youtube.com/watch?v=m6Kw1EuMz8s"
         }
     },
     {
@@ -23,9 +40,10 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://sunny-tech.io/",
+        "link": "https://2019.sunny-tech.io/",
         "talk": {
-            "title": "Tensorflow, there is no spoon"
+            "title": "Tensorflow, there is no spoon",
+            "video": "https://www.youtube.com/watch?v=M5C4C8ANbNM"
         }
     },
     {
@@ -40,7 +58,8 @@
         ],
         "link": "https://devfest.gdglille.org/",
         "talk": {
-            "title": "Tensorflow, there is no spoon"
+            "title": "Tensorflow, there is no spoon",
+            "video": "https://www.youtube.com/watch?v=CSFNZ-xKbM0"
         }
     },
     {
@@ -53,9 +72,10 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://mixitconf.org/en/",
+        "link": "https://mixitconf.org/2019",
         "talk": {
-            "title": "Tensorflow, there is no spoon"
+            "title": "Tensorflow, there is no spoon",
+            "video": "https://mixitconf.org/2019/tensorflow-there-is-no-spoon"
         }
     },
     {
@@ -68,9 +88,10 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://mixitconf.org/en/",
+        "link": "https://mixitconf.org/2019",
         "talk": {
-            "title": "VS Code: Mode Collaboratif activé!"
+            "title": "VS Code: Mode Collaboratif activé!",
+            "video": "https://mixitconf.org/2019/vs-code-mode-collaboratif-active-"
         }
     },
     {
@@ -172,7 +193,7 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://devfesttoulouse.fr/",
+        "link": "https://2018.devfesttoulouse.fr/",
         "talk": {
             "title": "Tensorflow, there is no spoon",
             "video": "https://www.youtube.com/watch?v=4QIjIoHP0x4"
