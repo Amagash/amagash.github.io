@@ -1,4 +1,16 @@
 [{
+    "id": 20200214,
+    "date": "2020-02-14",
+    "name": "DevFest Paris 2020",
+    "location": {
+        "name": "Paris, France"
+    },
+    "roles": [
+        "Organizer"
+    ],
+    "link": "https://devfest.gdgparis.com/"
+},
+    {
     "id": 20191003,
     "date": "2019-10-03",
     "name": "DevFest Toulouse",
@@ -159,7 +171,7 @@
     {
         "id": 20190208,
         "date": "2019-02-08",
-        "name": "DevFest Paris",
+        "name": "DevFest Paris 2019",
         "location": {
             "name": "Paris, France"
         },
@@ -228,7 +240,7 @@
     {
         "id": 20160205,
         "date": "2016-02-05",
-        "name": "DevFest Paris",
+        "name": "DevFest Paris 2016",
         "location": {
             "name": "Paris, France"
         },
@@ -240,7 +252,7 @@
     {
         "id": 20150130,
         "date": "2015-01-30",
-        "name": "DevFest Paris",
+        "name": "DevFest Paris 2015",
         "location": {
             "name": "Paris, France",
             "lat": 43.6110956,
