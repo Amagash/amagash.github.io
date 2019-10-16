@@ -1,4 +1,19 @@
-[{
+[    {
+    "id": 20191016,
+    "date": "2019-10-16",
+    "name": "Lancement communaute Cloud",
+    "location": {
+        "name": "Paris, France"
+    },
+    "roles": [
+        "Speaker"
+    ],
+    "link": "https://www.jems-group.com/",
+    "talk": {
+        "title": "REX GCP: Professional Data engineer certification"
+    }
+},
+    {
     "id": 20200214,
     "date": "2020-02-14",
     "name": "DevFest Paris 2020",
