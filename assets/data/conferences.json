@@ -102,6 +102,81 @@
         }
     },
     {
+        "id": 20190820,
+        "date": "2019-08-20",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Practice Exams for the Professional Data Engineer Certification"
+        }
+    },
+    {
+        "id": 20190820,
+        "date": "2019-08-20",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Build and Operationalize Data Processing Systems"
+        }
+    },
+    {
+        "id": 20190819,
+        "date": "2019-08-19",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Operational Machine Learning Models"
+        }
+    },
+    {
+        "id": 20190802,
+        "date": "2019-08-02",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Ensure Solution Quality"
+        }
+    },
+    {
+        "id": 20190801,
+        "date": "2019-08-01",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Design Data Processing systems"
+        }
+    },
+    {
         "id": 20190627,
         "date": "2019-06-27",
         "name": "Sunny Tech",
