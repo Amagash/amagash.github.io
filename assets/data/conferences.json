@@ -1,46 +1,106 @@
-[    {
-    "id": 20191016,
-    "date": "2019-10-16",
-    "name": "Lancement communaute Cloud",
-    "location": {
-        "name": "Paris, France"
+[{
+        "id": 20200214,
+        "date": "2020-02-14",
+        "name": "DevFest Paris 2020",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Organizer"
+        ],
+        "link": "https://devfest.gdgparis.com/"
     },
-    "roles": [
-        "Speaker"
-    ],
-    "link": "https://www.jems-group.com/",
-    "talk": {
-        "title": "REX GCP: Professional Data engineer certification"
-    }
-},
     {
-    "id": 20200214,
-    "date": "2020-02-14",
-    "name": "DevFest Paris 2020",
-    "location": {
-        "name": "Paris, France"
+        "id": 20191129,
+        "date": "2019-11-29",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Build and Operationalize Data Processing Systems"
+        }
     },
-    "roles": [
-        "Organizer"
-    ],
-    "link": "https://devfest.gdgparis.com/"
-},
     {
-    "id": 20191003,
-    "date": "2019-10-03",
-    "name": "DevFest Toulouse",
-    "location": {
-        "name": "Toulouse, France"
+        "id": 20191128,
+        "date": "2019-11-28",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Operational Machine Learning Models"
+        }
     },
-    "roles": [
-        "Speaker"
-    ],
-    "link": "https://devfesttoulouse.fr/",
-    "talk": {
-        "title": "Allo Paris, ici San Francisco. Et si on codait ensemble avec VS Code?",
-        "video": "https://www.youtube.com/watch?time_continue=54&v=6KR0rNN4coU"
-    }
-},
+    {
+        "id": 20191127,
+        "date": "2019-11-27",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Ensure Solution Quality"
+        }
+    },
+    {
+        "id": 20191126,
+        "date": "2019-11-26",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Design Data Processing systems"
+        }
+    },
+    {
+        "id": 20191016,
+        "date": "2019-10-16",
+        "name": "Launching Cloud Community",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "REX GCP: Professional Data engineer certification"
+        }
+    },
+    {
+        "id": 20191003,
+        "date": "2019-10-03",
+        "name": "DevFest Toulouse",
+        "location": {
+            "name": "Toulouse, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devfesttoulouse.fr/",
+        "talk": {
+            "title": "Allo Paris, ici San Francisco. Et si on codait ensemble avec VS Code?",
+            "video": "https://www.youtube.com/watch?time_continue=54&v=6KR0rNN4coU"
+        }
+    },
     {
         "id": 20190627,
         "date": "2019-06-27",
