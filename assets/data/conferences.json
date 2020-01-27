@@ -1,4 +1,15 @@
 [{
+    "id": 20200217,
+    "date": "2020-02-17",
+    "name": "Microsoft Roadshow",
+    "location": {
+        "name": "France"
+    },
+    "roles": [
+        "Speaker"
+    ]
+},
+    {
         "id": 20200214,
         "date": "2020-02-14",
         "name": "DevFest Paris 2020",
@@ -9,6 +20,21 @@
             "Organizer"
         ],
         "link": "https://devfest.gdgparis.com/"
+    },
+    {
+        "date": "2020-01-23",
+        "id": 20200123,
+        "name": "Snowcamp 2020",
+        "location": {
+            "name": "Grenoble, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://snowcamp.io/fr/",
+        "talk": {
+            "title": "Allo la montagne, ici la mer. Et si on codait ensemble avec VS Code?"
+        }
     },
     {
         "id": 20191129,
