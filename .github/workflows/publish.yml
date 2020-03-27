@@ -11,6 +11,6 @@ jobs:
         FTP_SERVER: ftp.cluster029.hosting.ovh.net
         FTP_USERNAME: souterrefn
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        LOCAL_DIR: .
+        LOCAL_DIR: ./
         REMOTE_DIR: www
         ARGS: --delete --transfer-all
