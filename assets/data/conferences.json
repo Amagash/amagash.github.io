@@ -9,6 +9,7 @@
         "roles": [
             "Mentor"
         ],
+        "link": "https://aka.ms/rs-quantum",
         "talk": {
             "title": "Introduction au calcul quantique"
         }
@@ -23,6 +24,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.meetup.com/fr-FR/Meetup-Mug-Net-Nantes/events/273391862/",
         "talk": {
             "title": "Codespaces et Github Actions"
         }
@@ -37,6 +39,7 @@
         "roles": [
             "Mentor"
         ],
+        "link": "https://aka.ms/rs-quantum",
         "talk": {
             "title": "Introduction au calcul quantique"
         }
@@ -51,6 +54,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.meetup.com/fr-FR/Meetup-Mug-Tours/events/273499455/",
         "talk": {
             "title": "Codespaces et Github Actions"
         }
@@ -65,6 +69,7 @@
         "roles": [
             "Mentor"
         ],
+        "link": "https://aka.ms/rs-quantum",
         "talk": {
             "title": "Introduction au calcul quantique"
         }
@@ -79,6 +84,7 @@
         "roles": [
             "Mentor"
         ],
+        "link": "https://aka.ms/rs-quantum",
         "talk": {
             "title": "Introduction au calcul quantique"
         }
