@@ -156,3 +156,5 @@ crashlytics-build.properties
 fabric.properties
 
 .idea
+
+test.sh
