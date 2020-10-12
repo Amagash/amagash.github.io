@@ -1,14 +1,98 @@
 [
     {
-    "id": 20200217,
-    "date": "2020-02-17",
-    "name": "Microsoft Roadshow",
-    "location": {
-        "name": "France"
+        "id": 20201013,
+        "date": "2020-10-13",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Rennes, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Introduction au calcul quantique"
+        }
     },
-    "roles": [
-        "Speaker"
-    ]
+    {
+        "id": 20201012,
+        "date": "2020-10-12",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Nantes, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Codespaces et Github Actions"
+        }
+    },
+    {
+        "id": 20201012,
+        "date": "2020-10-12",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Nantes, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Introduction au calcul quantique"
+        }
+    },
+    {
+        "id": 20201008,
+        "date": "2020-10-08",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Tours, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Codespaces et Github Actions"
+        }
+    },
+    {
+        "id": 20201008,
+        "date": "2020-10-08",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Tours, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Introduction au calcul quantique"
+        }
+    },
+    {
+        "id": 20201006,
+        "date": "2020-10-06",
+        "name": "Microsoft Roadshow Fall 2020",
+        "location": {
+            "name": "Orleans, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Introduction au calcul quantique"
+        }
+    },
+    {
+        "id": 20200217,
+        "date": "2020-02-17",
+        "name": "Microsoft Roadshow",
+        "location": {
+            "name": "France"
+        },
+        "roles": [
+            "Speaker"
+        ]
     },
     {
         "id": 20200214,
