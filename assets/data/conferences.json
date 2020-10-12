@@ -84,6 +84,21 @@
         }
     },
     {
+        "id": 20200310,
+        "date": "2020-03-10",
+        "name": "GCP Training",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "link": "https://www.jems-group.com/",
+        "talk": {
+            "title": "Build and Operationalize Data Processing Systems"
+        }
+    },
+    {
         "id": 20200217,
         "date": "2020-02-17",
         "name": "Microsoft Roadshow",
