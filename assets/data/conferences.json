@@ -90,6 +90,21 @@
         }
     },
     {
+        "id": 20200415,
+        "date": "2020-04-15",
+        "name": "Devoxx 2020",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.devoxx.fr/2020/04/15/devoxx-france-2020-est-annule/",
+        "talk": {
+            "title": "[CANCELLED]Hello TensorFlow: 3 ateliers pour débuter avec Tensorflow 2.0"
+        }
+    },
+    {
         "id": 20200312,
         "date": "2020-03-12",
         "name": "GCP Training",
