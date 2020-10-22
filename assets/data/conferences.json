@@ -1,4 +1,34 @@
 [
+     {
+        "id": 20201022,
+        "date": "2020-10-22",
+        "name": "Hacktoberfest 2020",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://slides.com/tiffanysouterre/deck-55cb51"
+        "talk": {
+            "title": "Hacktoberfest 2020! Come and make your first Pull Request"
+        }
+    },
+    {
+        "id": 20201020,
+        "date": "2020-10-20",
+        "name": "Podcast",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.linkedin.com/posts/michaelvirgone_machinelearning-deeplearning-intelligenceartificielle-activity-6724955306314481664-VN1-",
+        "talk": {
+            "title": "AI vs Machine Learning vs Deep Learning"
+        }
+    }, 
     {
         "id": 20201013,
         "date": "2020-10-13",
