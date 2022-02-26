@@ -1,5 +1,180 @@
 [   
     {
+        "id": 20220216,
+        "date": "2022-02-16",
+        "name": "Simplon",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20220214,
+        "date": "2022-02-14",
+        "name": "Thalès",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20220202,
+        "date": "2022-02-02",
+        "name": "Snowcamp",
+        "location": {
+            "name": "Grenoble, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://snowcamp.io/fr/",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20220120,
+        "date": "2022-01-20",
+        "name": "Visionary Day",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Table ronde sur l'IA"
+        }
+    },
+    {
+        "id": 20211222,
+        "date": "2021-12-22",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "On a laissé une IA finir cette phrase ! (ça s'est pas passé comme prévu)",
+            "vidéo": "https://www.youtube.com/watch?v=PznWW_716Ys"
+        }
+    },
+    {
+        "id": 20211222,
+        "date": "2021-12-22",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Elle a codé un bot Minecraft RÉVOLUTIONNAIRE (on est choqué)",
+            "vidéo": "https://www.youtube.com/watch?v=16cryV3zLKk"
+        }
+    },
+    {
+        "id": 20211207,
+        "date": "2021-12-07",
+        "name": "Microsoft Community Launch at JEMS",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devday.be/",
+        "talk": {
+            "title": "Comment lancer votre communauté ?"
+        }
+    },
+    {
+        "id": 20211123,
+        "date": "2021-11-23",
+        "name": "DevDay 2021",
+        "location": {
+            "name": "Belgique, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devday.be/",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20211109,
+        "date": "2021-11-09",
+        "name": "DevFest Strasbourg 2021",
+        "location": {
+            "name": "Strasbourg, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://devfest.gdgstrasbourg.fr/",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20211027,
+        "date": "2021-10-27",
+        "name": "Meetup MUG Tours",
+        "location": {
+            "name": "Tours, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20211027,
+        "date": "2021-10-27",
+        "name": "Workshop MUG Tours",
+        "location": {
+            "name": "Tours, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Azure Static Web Apps Workshop"
+        }
+    },
+    {
+        "id": 20211010,
+        "date": "2021-10-19",
+        "name": "Meetup rIAlity lab",
+        "location": {
+            "name": "Aix, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.meetup.com/Machine-learning-Aix-Marseille/events/279200195",
+        "talk": {
+            "title": "Y a-t-il in Copilot dans mon IDE ?"
+        }
+    },  
+    {
         "id": 20211011,
         "date": "2021-10-11",
         "name": "Microsoft Roadshow Fall 2021",
@@ -175,7 +350,7 @@
         "date": "2021-09-29",
         "name": "Microsoft Roadshow Fall 2021",
         "location": {
-            "name": "Mons, France"
+            "name": "Mons, Belgique"
         },
         "roles": [
             "Speaker"
@@ -190,7 +365,7 @@
         "date": "2021-09-29",
         "name": "Microsoft Roadshow Fall 2021",
         "location": {
-            "name": "Mons, France"
+            "name": "Mons, Belgique"
         },
         "roles": [
             "Mentor"
@@ -204,7 +379,7 @@
         "date": "2021-09-28",
         "name": "Microsoft Roadshow Fall 2021",
         "location": {
-            "name": "Luxembourg, France"
+            "name": "Luxembourg"
         },
         "roles": [
             "Speaker"
@@ -219,7 +394,7 @@
         "date": "2021-09-28",
         "name": "Microsoft Roadshow Fall 2021",
         "location": {
-            "name": "Luxembourg, France"
+            "name": "Luxembourg"
         },
         "roles": [
             "Mentor"
