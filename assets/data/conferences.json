@@ -1,4 +1,136 @@
-[
+[   {
+        "id": 20210923,
+        "date": "2021-09-23",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Clermont, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.meetup.com/muginclermont/events/280667416/",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20210923,
+        "date": "2021-09-23",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Clermont, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Azure Static Web Apps Workshop"
+        }
+    },
+    {
+        "id": 20210922,
+        "date": "2021-09-22",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Lyon, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://gdg.community.dev/events/details/google-gdg-cloud-and-iot-lyon-presents-de-retour-pour-une-session-en-physique-en-partenariat-avec-le-mug-lyon/",
+        "talk": {
+            "title": "Les tribulations d'une jeune reconvertie en informatique",
+            "video": "https://www.youtube.com/watch?v=CQ7EPfVxF6Q"
+        }
+    },
+    {
+        "id": 20210922,
+        "date": "2021-09-22",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Lyon, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Azure Static Web Apps Workshop"
+        }
+    },
+    {
+        "id": 20210921,
+        "date": "2021-09-21",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Valence, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.meetup.com/fr-FR/Ardech-Drom-Dev/events/280742445/",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20210921,
+        "date": "2021-09-21",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Valence, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Azure Static Web Apps Workshop"
+        }
+    },
+    {
+        "id": 20210920,
+        "date": "2021-09-20",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Aix, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.meetup.com/Meetup-Azure-Devops-Aix-en-Provence/events/280591263/",
+        "talk": {
+            "title": "Entraîner, déployer et consommer mon modèle de Machine Learning en quelques clics",
+            "video": "https://www.youtube.com/watch?v=TSEv5XN2keE"
+        }
+    },
+    {
+        "id": 20210920,
+        "date": "2021-09-20",
+        "name": "Microsoft Roadshow Fall 2021",
+        "location": {
+            "name": "Aix, France"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Azure Static Web Apps Workshop"
+        }
+    },
+    {
+        "id": 20210914,
+        "date": "2021-09-14",
+        "name": "BBL Doctolib",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://slides.com/tiffanysouterre/deck",
+        "talk": {
+            "title": "There is no spoon"
+        }
+    },
      {
         "id": 20201022,
         "date": "2020-10-22",
