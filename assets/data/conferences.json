@@ -1,5 +1,48 @@
 [   
     {
+        "id": 20220421,
+        "date": "2022-04-21",
+        "name": "Devoxx France",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://cfp.devoxx.fr/2022/talks",
+        "talk": {
+            "title": "Jouer à Minecraft avec une IA générée par GPT-3"
+        }
+    },
+    {
+        "id": 20220308,
+        "date": "2022-03-08",
+        "name": "PyLadies meetup",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Mon Copilot en Python"
+        }
+    },
+    {
+        "id": 20220305,
+        "date": "2022-03-05",
+        "name": "International Women's Day",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
         "id": 20220216,
         "date": "2022-02-16",
         "name": "Simplon",
@@ -10,7 +53,7 @@
             "Speaker"
         ],
         "talk": {
-            "title": "Y a-t-il un copilote dans mon IDE ?"
+            "title": "Codex, une IA aux multiples usages"
         }
     },
     {
@@ -129,6 +172,20 @@
         "link": "https://devfest.gdgstrasbourg.fr/",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
+        "id": 20211027,
+        "date": "2021-10-27",
+        "name": "Meetup MUG Tours",
+        "location": {
+            "name": "Tours, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Les tribulations d'une jeune reconvertie en informatique"
         }
     },
     {
@@ -701,7 +758,7 @@
         ],
         "link": "https://www.devoxx.fr/2020/04/15/devoxx-france-2020-est-annule/",
         "talk": {
-            "title": "[CANCELLED] Hello TensorFlow: 3 ateliers pour débuter avec Tensorflow 2.0"
+            "title": "[CANCELLED - COVID] Hello TensorFlow: 3 ateliers pour débuter avec Tensorflow 2.0"
         }
     },
     {
