@@ -15,6 +15,20 @@
         }
     },
     {
+        "id": 20220407,
+        "date": "2022-04-07",
+        "name": "Malt Academy",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
         "id": 20220308,
         "date": "2022-03-08",
         "name": "PyLadies meetup",
