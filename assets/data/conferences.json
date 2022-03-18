@@ -101,6 +101,17 @@
         }
     },
     {
+        "id": 20220224,
+        "date": "2021-02-24",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ]
+    },
+    {
         "id": 20220216,
         "date": "2022-02-16",
         "name": "Simplon",
