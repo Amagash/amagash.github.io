@@ -29,6 +29,18 @@
         }
     },
     {
+        "id": 20220318,
+        "date": "2022-03-18",
+        "name": "Microsoft Community Summit",
+        "location": {
+            "name": "Château de Montvillargenne"
+        },
+        "roles": [
+            "Organizer"
+        ],
+        "link": "https://aka.ms/mtg-summit"
+    },
+    {
         "id": 20220308,
         "date": "2022-03-08",
         "name": "PyLadies meetup",
