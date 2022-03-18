@@ -54,6 +54,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://app.livestorm.co/malt-community/y-a-t-il-un-copilote-dans-mon-ide?type=detailed",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
         }
@@ -80,9 +81,9 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.meetup.com/pyladiesparis/events/284183730/",
         "talk": {
             "title": "There is no spoon!"
-            
         }
     },
     {
@@ -95,6 +96,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.youtube.com/watch?v=HWZMKa0s9l4",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?",
             "video": "https://www.youtube.com/watch?v=HWZMKa0s9l4"
@@ -121,6 +123,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://simplon.co/",
         "talk": {
             "title": "Codex, une IA aux multiples usages"
         }
@@ -135,6 +138,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.thalesgroup.com/en",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
         }
@@ -164,6 +168,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.youtube.com/watch?v=RaoAdY-j__o",
         "talk": {
             "title": "Table ronde sur l'IA",
             "video": "https://www.youtube.com/watch?v=RaoAdY-j__o"
@@ -179,6 +184,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.youtube.com/watch?v=PznWW_716Ys",
         "talk": {
             "title": "On a laissé une IA finir cette phrase ! (ça s'est pas passé comme prévu)",
             "video": "https://www.youtube.com/watch?v=PznWW_716Ys"
@@ -194,6 +200,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.youtube.com/watch?v=16cryV3zLKk",
         "talk": {
             "title": "Elle a codé un bot Minecraft RÉVOLUTIONNAIRE (on est choqué)",
             "video": "https://www.youtube.com/watch?v=16cryV3zLKk"
@@ -209,7 +216,7 @@
         "roles": [
             "Speaker"
         ],
-        "link": "https://devday.be/",
+        "link": "https://www.jems-group.com/fr/",
         "talk": {
             "title": "Comment lancer votre communauté ?"
         }
@@ -254,6 +261,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.meetup.com/Meetup-Mug-Tours/",
         "talk": {
             "title": "Les tribulations d'une jeune reconvertie en informatique"
         }
@@ -268,6 +276,7 @@
         "roles": [
             "Speaker"
         ],
+        "link": "https://www.meetup.com/Meetup-Mug-Tours/",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
         }
@@ -282,6 +291,7 @@
         "roles": [
             "Mentor"
         ],
+        "link": "https://www.meetup.com/Meetup-Mug-Tours/",
         "talk": {
             "title": "Azure Static Web Apps Workshop"
         }
@@ -325,6 +335,7 @@
         "roles": [
             "Mentor"
         ],
+        "link":"https://www.epita.fr/",
         "talk": {
             "title": "Azure Static Web Apps Workshop"
         }
