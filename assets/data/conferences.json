@@ -82,6 +82,7 @@
         ],
         "talk": {
             "title": "There is no spoon!"
+            
         }
     },
     {
@@ -95,7 +96,8 @@
             "Speaker"
         ],
         "talk": {
-            "title": "Y a-t-il un copilote dans mon IDE ?"
+            "title": "Y a-t-il un copilote dans mon IDE ?",
+            "video": "https://www.youtube.com/watch?v=HWZMKa0s9l4"
         }
     },
     {
