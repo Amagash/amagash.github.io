@@ -30,6 +30,21 @@
         }
     },
     {
+        "id": 20220512,
+        "date": "2022-05-12",
+        "name": "Tech'event CGI Grand-Est",
+        "location": {
+            "name": "Lyon, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.cgi.com/en",
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },
+    {
         "id": 20220421,
         "date": "2022-04-21",
         "name": "Devoxx France",
