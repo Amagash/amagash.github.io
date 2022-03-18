@@ -1,4 +1,34 @@
-[   
+[
+    {
+        "id": 20220610,
+        "date": "2022-06-10",
+        "name": "Le camping des speakers",
+        "location": {
+            "name": "Morbihan, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://camping-speakers.fr/",
+        "talk": {
+            "title": "DevRel, c'est quoi ?"
+        }
+    },   
+    {
+        "id": 20220609,
+        "date": "2022-06-09",
+        "name": "Le camping des speakers",
+        "location": {
+            "name": "Morbihan, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://camping-speakers.fr/",
+        "talk": {
+            "title": "Davinci, raconte-nous une histoire!"
+        }
+    },
     {
         "id": 20220421,
         "date": "2022-04-21",
