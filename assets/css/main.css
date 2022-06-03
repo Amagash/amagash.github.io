@@ -381,6 +381,10 @@ a:hover {
     display: inline-block;
 }
 
+.conference .role.Sponsor {
+    color: #c70303;
+}
+
 .conference .role.Speaker {
     color: #039dc7;
 }

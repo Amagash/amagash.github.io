@@ -1,5 +1,58 @@
 [
     {
+        "id": 20220707,
+        "date": "2022-07-07",
+        "name": "BNP Data",
+        "location": {
+            "name": "Paris, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },  
+    {
+        "id": 20220629,
+        "date": "2022-06-29",
+        "name": "SunntyTech 2022",
+        "location": {
+            "name": "Montepellier France, France"
+        },
+        "roles": [
+            "Sponsor"
+        ]
+    },  
+    {
+        "id": 20220628,
+        "date": "2022-06-28",
+        "name": "JEMS soirée Data Engineering",
+        "location": {
+            "name": "Nantes, France"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Y a-t-il un copilote dans mon IDE ?"
+        }
+    },  
+    {
+        "id": 20220622,
+        "date": "2022-06-22",
+        "name": "Underscore Live - Le dev du Futur",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Dev du Futur"
+        }
+    },  
+    {
         "id": 20220616,
         "date": "2022-06-16",
         "name": "Vivatech",
@@ -41,6 +94,22 @@
         "link": "https://camping-speakers.fr/",
         "talk": {
             "title": "Davinci, raconte-nous une histoire!"
+        }
+    },
+    {
+        "id": 20220601,
+        "date": "2022-06-01",
+        "name": "Power Branch Live Twitch",
+        "location": {
+            "name": "Twitch"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "link": "https://www.twitch.tv/micbelgique",
+        "talk": {
+            "title": "Développer sur Minecraft en Python",
+            "video": "https://www.twitch.tv/videos/1314746705"
         }
     },
     {
