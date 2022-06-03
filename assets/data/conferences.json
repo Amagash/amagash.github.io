@@ -16,7 +16,7 @@
     {
         "id": 20220629,
         "date": "2022-06-29",
-        "name": "SunntyTech 2022",
+        "name": "SunnyTech 2022",
         "location": {
             "name": "Montepellier France, France"
         },
@@ -128,6 +128,63 @@
         }
     },
     {
+        "id": 20220524,
+        "date": "2022-05-24",
+        "name": "Mixit 2022",
+        "location": {
+            "name": "Lyon, France"
+        },
+        "roles": [
+            "Sponsor"
+        ],
+        "link": "https://mixitconf.org/en/"
+    },
+    {
+        "id": 20220427,
+        "date": "2021-04-27",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "On a reçu le hacker qui rend fou les arnaqueurs",
+            "video": "https://www.youtube.com/watch?v=drSVg0q9-1Y&t=28s"
+        }
+    },
+    {
+        "id": 20220427,
+        "date": "2021-04-27",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "L'embrouille avec mon dev",
+            "video": "https://www.youtube.com/watch?v=y6Q3vnLbBrQ"
+        }
+    },
+    {
+        "id": 20220427,
+        "date": "2021-04-27",
+        "name": "Underscore Live",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Speaker"
+        ],
+        "talk": {
+            "title": "Rachat de Twitter : Ce dont personne ne parle",
+            "video": "https://www.youtube.com/watch?v=LKYtXDjgPZs"
+        }
+    },
+    {
         "id": 20220421,
         "date": "2022-04-21",
         "name": "Devoxx France",
@@ -188,7 +245,7 @@
     {
         "id": 20220318,
         "date": "2022-03-18",
-        "name": "Microsoft Community Summit",
+        "name": "Microsoft Community Summit 2022",
         "location": {
             "name": "Château de Montvillargenne"
         },
@@ -237,7 +294,11 @@
         },
         "roles": [
             "Speaker"
-        ]
+        ],
+        "talk": {
+            "title": "Les américains ne nous respectent pas.",
+            "video": "https://www.youtube.com/watch?v=r0Ws-24hrHI&t=102s"
+        }
     },
     {
         "id": 20220216,
