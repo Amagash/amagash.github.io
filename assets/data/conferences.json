@@ -101,13 +101,13 @@
         "id": 20220601,
         "date": "2022-06-01",
         "name": "Power Branch Live Twitch",
+        "link": "https://www.twitch.tv/micbelgique",
         "location": {
             "name": "Twitch"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://www.twitch.tv/micbelgique",
         "talk": {
             "title": "Développer sur Minecraft en Python",
             "video": "https://www.twitch.tv/videos/1314746705"
