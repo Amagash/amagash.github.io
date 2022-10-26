@@ -128,7 +128,7 @@
         },
         "roles": [
             "Sponsor"
-        ],
+        ]
     },
     {
         "id": 20220427,
@@ -286,7 +286,7 @@
         "id": 20220224,
         "date": "2021-02-24",
         "name": "Underscore Live",
-        "link": "https://www.youtube.com/watch?v=r0Ws-24hrHI&t=102s"
+        "link": "https://www.youtube.com/watch?v=r0Ws-24hrHI&t=102s",
         "location": {
             "name": "Online"
         },
