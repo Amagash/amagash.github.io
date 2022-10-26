@@ -3,6 +3,7 @@
         "id": 20221020,
         "date": "2022-10-20",
         "name": "DevFest Nantes 2022",
+        "link": "https://devfest2022.gdgnantes.com/en/",
         "location": {
             "name": "Nantes, France"
         },
@@ -17,6 +18,7 @@
         "id": 20220629,
         "date": "2022-06-29",
         "name": "SunnyTech 2022",
+        "link": "https://2022.sunny-tech.io/",
         "location": {
             "name": "Montepellier France, France"
         },
@@ -28,6 +30,7 @@
         "id": 20220628,
         "date": "2022-06-28",
         "name": "JEMS soirée Data Engineering",
+        "link": "https://www.linkedin.com/posts/jems-group_nantes-dataengineering-datacentric-activity-6948558690736078848-719W?utm_source=share&utm_medium=member_desktop",
         "location": {
             "name": "Nantes, France"
         },
@@ -42,6 +45,7 @@
         "id": 20220622,
         "date": "2022-06-22",
         "name": "Underscore Live",
+        "link": "https://www.youtube.com/watch?v=drSVg0q9-1Y&t=28s",
         "location": {
             "name": "Online"
         },
@@ -52,32 +56,18 @@
             "title": "Les ordinateurs du futur seront radicalement différents",
             "video": "https://www.youtube.com/watch?v=drSVg0q9-1Y&t=28s"
         }
-    },  
-    {
-        "id": 20220616,
-        "date": "2022-06-16",
-        "name": "Vivatech",
-        "location": {
-            "name": "Paris, France"
-        },
-        "roles": [
-            "Speaker"
-        ],
-        "talk": {
-            "title": "Copilot et Minecraft demo"
-        }
-    },   
+    },    
     {
         "id": 20220610,
         "date": "2022-06-10",
         "name": "Le camping des speakers",
+        "link": "https://camping-speakers.fr/",
         "location": {
             "name": "Morbihan, France"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://camping-speakers.fr/",
         "talk": {
             "title": "DevRel, c'est quoi ?"
         }
@@ -86,13 +76,13 @@
         "id": 20220609,
         "date": "2022-06-09",
         "name": "Le camping des speakers",
+        "link": "https://camping-speakers.fr/",
         "location": {
             "name": "Morbihan, France"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://camping-speakers.fr/",
         "talk": {
             "title": "Davinci, raconte-nous une histoire!"
         }
@@ -117,13 +107,13 @@
         "id": 20220512,
         "date": "2022-05-12",
         "name": "Tech'event CGI Grand-Est",
+        "link": "https://www.cgi.com/en",
         "location": {
             "name": "Lyon, France"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://www.cgi.com/en",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
         }
@@ -132,18 +122,19 @@
         "id": 20220524,
         "date": "2022-05-24",
         "name": "Mixit 2022",
+        "link": "https://mixitconf.org/en/",
         "location": {
             "name": "Lyon, France"
         },
         "roles": [
             "Sponsor"
         ],
-        "link": "https://mixitconf.org/en/"
     },
     {
         "id": 20220427,
         "date": "2021-04-27",
         "name": "Underscore Live",
+        "link": "https://www.youtube.com/watch?v=drSVg0q9-1Y&t=28s",
         "location": {
             "name": "Online"
         },
@@ -159,6 +150,7 @@
         "id": 20220427,
         "date": "2021-04-27",
         "name": "Underscore Live",
+        "link": "https://www.youtube.com/watch?v=y6Q3vnLbBrQ",
         "location": {
             "name": "Online"
         },
@@ -174,6 +166,7 @@
         "id": 20220427,
         "date": "2021-04-27",
         "name": "Underscore Live",
+        "link": "https://www.youtube.com/watch?v=LKYtXDjgPZs",
         "location": {
             "name": "Online"
         },
@@ -189,21 +182,23 @@
         "id": 20220421,
         "date": "2022-04-21",
         "name": "Devoxx France",
+        "link": "https://cfp.devoxx.fr/2022/talks",
         "location": {
             "name": "Paris, France"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://cfp.devoxx.fr/2022/talks",
         "talk": {
-            "title": "Jouer à Minecraft avec une IA générée par GPT-3"
+            "title": "Jouer à Minecraft avec une IA générée par GPT-3",
+            "video": "https://www.youtube.com/watch?v=sbsU9gRzKaA&t=11s"
         }
     },
     {
         "id": 20220415,
         "date": "2022-04-15",
         "name": "Simplon Workshop",
+        "link": "https://en.simplon.co/",
         "location": {
             "name": "Grenoble, France"
         },
@@ -218,6 +213,7 @@
         "id": 20220414,
         "date": "2022-04-14",
         "name": "Simplon AI",
+        "link": "https://en.simplon.co/",
         "location": {
             "name": "Grenoble, France"
         },
@@ -232,13 +228,13 @@
         "id": 20220407,
         "date": "2022-04-07",
         "name": "Malt Academy",
+        "link": "https://app.livestorm.co/malt-community/y-a-t-il-un-copilote-dans-mon-ide?type=detailed",
         "location": {
             "name": "Online"
         },
         "roles": [
             "Speaker"
         ],
-        "link": "https://app.livestorm.co/malt-community/y-a-t-il-un-copilote-dans-mon-ide?type=detailed",
         "talk": {
             "title": "Y a-t-il un copilote dans mon IDE ?"
         }
@@ -290,6 +286,7 @@
         "id": 20220224,
         "date": "2021-02-24",
         "name": "Underscore Live",
+        "link": "https://www.youtube.com/watch?v=r0Ws-24hrHI&t=102s"
         "location": {
             "name": "Online"
         },
