@@ -389,6 +389,10 @@ a:hover {
     color: #039dc7;
 }
 
+.conference .role.Talk-show {
+    color: #6bc703;
+}
+
 .conference .role.Organizer {
     color: #02ccba;
 }
