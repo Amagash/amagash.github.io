@@ -64,6 +64,21 @@
         }
     },
     {
+        "id": 20221128,
+        "date": "2022-11-28",
+        "name": "re:Invent 2022",
+        "link": "https://catalog.us-east-1.prod.workshops.aws/workshops/34219179-dea1-45cd-a1ba-bc16eba58f40/en-US",
+        "location": {
+            "name": "Las Vegas, USA"
+        },
+        "roles": [
+            "Mentor"
+        ],
+        "talk": {
+            "title": "Build a fitness activity tracker using machine learning"
+        }
+    },
+    {
         "id": 20221114,
         "date": "2022-11-14",
         "name": "Underscore_",
