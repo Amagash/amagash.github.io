@@ -75,7 +75,7 @@
             "Talk-show"
         ],
         "talk": {
-            "title": "Comment fonctionne une zip bomb ?",
+            "title": "Comment fonctionne une \"zip bomb\" ?",
             "video": "https://www.youtube.com/watch?v=U8zbiX7j2MY"
         }
     },
@@ -140,6 +140,22 @@
         "talk": {
             "title": "Les jeux vidéos du futur seront radicalement différents",
             "video": "https://www.youtube.com/watch?v=VCqbPcgLsks"
+        }
+    },
+    {
+        "id": 20221103,
+        "date": "2022-11-03",
+        "name": "Underscore_",
+        "link": "https://www.youtube.com/watch?v=ht_yTaAzdF0",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Talk-show"
+        ],
+        "talk": {
+            "title": "Ce qu'il a découvert sur les sponso YouTube",
+            "video": "https://www.youtube.com/watch?v=ht_yTaAzdF0"
         }
     },
     {
