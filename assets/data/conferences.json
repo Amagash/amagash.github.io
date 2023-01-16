@@ -1,5 +1,37 @@
 [
     {
+        "id": 20230112,
+        "date": "2023-01-12",
+        "name": "Underscore_",
+        "link": "https://www.youtube.com/watch?v=tLcQRwUyEZk",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Talk-show"
+        ],
+        "talk": {
+            "title": "La trouvaille scandaleuse d'un hacker sur les Google Home",
+            "video": "https://www.youtube.com/watch?v=tLcQRwUyEZk"
+        }
+    },
+    {
+        "id": 20230109,
+        "date": "2023-01-09",
+        "name": "Underscore_",
+        "link": "https://www.youtube.com/watch?v=T-EDAqEj050",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Talk-show"
+        ],
+        "talk": {
+            "title": "Le \"mode espion\" de Google que personne ne connaît",
+            "video": "https://www.youtube.com/watch?v=T-EDAqEj050"
+        }
+    },
+    {
         "id": 20230105,
         "date": "2023-01-05",
         "name": "Underscore_",
