@@ -1,5 +1,21 @@
 [
     {
+        "id": 20230116,
+        "date": "2023-01-16",
+        "name": "Underscore_",
+        "link": "https://www.youtube.com/watch?v=610auZn645w",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Talk-show"
+        ],
+        "talk": {
+            "title": "Comment gagner 42 000$ avec ChatGPT ?",
+            "video": "https://www.youtube.com/watch?v=610auZn645w"
+        }
+    },
+    {
         "id": 20230112,
         "date": "2023-01-12",
         "name": "Underscore_",
