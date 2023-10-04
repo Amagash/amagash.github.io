@@ -1,5 +1,21 @@
 [
     {
+        "id": 20230413,
+        "date": "2023-04-13",
+        "name": "Underscore_",
+        "link": "https://www.youtube.com/watch?v=KMg2tQ511d4",
+        "location": {
+            "name": "Online"
+        },
+        "roles": [
+            "Talk-show"
+        ],
+        "talk": {
+            "title": "Les SSD du futur seront radicalement différents",
+            "video": "https://www.youtube.com/watch?v=KMg2tQ511d4"
+        }
+    },
+    {
         "id": 20230116,
         "date": "2023-01-16",
         "name": "Underscore_",
